@@ -16,6 +16,7 @@ export default function rightClick (contexMenu){
             let id = e.target.dataset.id
             let otAsignada = orders[id]
             d.querySelector("#liID").textContent = `Documento seleccionado: # ${otAsignada.docID}`
+            d.querySelector("#liID").dataset.id = id;
             $contexMenu.style.visibility = "visible"
             $contexMenu.style.top = `${e.clientY}px `
             $contexMenu.style.left = `${e.clientX}px `
@@ -25,14 +26,6 @@ export default function rightClick (contexMenu){
     d.addEventListener("click", e => {
         if (!e.target.matches(`${contexMenu} div` )){
             $contexMenu.style.visibility = "hidden"
-        }
-        
-        if (e.target.matches(`#liID`)){
-        
-            // ABRIR DETALLES COMPLETOS DE LA ORDEN
-
-            $contexMenu.style.visibility = "hidden"
-
         }
 
 

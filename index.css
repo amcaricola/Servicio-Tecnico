@@ -58,11 +58,13 @@ section{
 section table {
     margin: 1rem  5%;
     width: 90%;
+    
 }
 
-table thead{
-    position: sticky;
+table {
+    margin-bottom: 25px;
 }
+
 
 th{
     background-color: darkgray;
@@ -212,3 +214,60 @@ textarea {
     color: white;
 
 }
+
+/* Full Reporte */
+
+.whitescreen {
+    position: fixed;
+    z-index: 1000;
+    background-color:  rgba(0, 0, 0, 0.7);
+    
+    opacity: 0%;
+    visibility: hidden;
+
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    
+    transition: all 0.3s ease;
+
+    display: grid;
+    justify-content: center ;
+    align-items: center;
+}
+
+.wsActive {
+    opacity: 100%;
+    visibility: visible;
+}
+
+.fullReporte{
+    box-sizing: border-box;
+    position: relative;
+    z-index: 1001;
+    background-color: white;
+    height: 600px;
+    width: 800px ;
+
+    padding: 25px 40px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.fullReporte table{
+    text-align: center;
+}
+
+.comentarioReporte{
+    height: 150px;
+    border: 1px solid black;
+    padding: 10px;
+}
+
+.fullReporte h4 {
+    margin: 0;
+} 
+

@@ -116,6 +116,82 @@
             <div data-action="conclucion" class="selector">Agregar/Editar Conclucion</div>
     </div>
 
+
+    <!-- TABLA DE REPORTE DE ORDEN -->
+
+    <div class="whitescreen" >
+        <div class="fullReporte">
+            <button class="closeWS x-buttonModal">X</button>
+
+            <h2 id="titleReporte">Reporte Completo de la orden: </h2>
+
+            <h4 class="productoReporte">Producto:</h4>
+
+            <table id="tablaReporte">
+
+                <thead>
+                    <tr>
+                        <th>Documento</th>  
+                        <th>Sujeto</th>
+                        <th>ID</th>
+                        <th>Fecha</th>
+                    </tr>
+                </thead>
+
+                
+                <tbody>
+                    <tr>
+                        <td class="reporteDOC">Factura</td>
+                        <td class="sujetoFacReporte" >-</td>
+                        <td class="idFacReporte" >-</td>
+                        <td class="fechaFacReporte" >-</td>
+                    </tr>
+                    <tr>
+                        <td class="reporteDOC">Guia Entrada</td>
+                        <td class="sujetoGeReporte" >-</td>
+                        <td class="idGeReporte" >-</td>
+                        <td class="fechaGeReporte" >-</td>
+                    </tr>
+                    <tr>
+                        <td class="reporteDOC">Guia Salida</td>
+                        <td class="sujetoGsReporte" >-</td>
+                        <td class="idGsReporte" >-</td>
+                        <td class="fechaGsReporte" >-</td>
+                    </tr>
+                    <tr>
+                        <td class="reporteDOC">OT servicio tech.</td>
+                        <td class="sujetoOtReporte" >-</td>
+                        <td class="idOtReporte" >-</td>
+                        <td class="fechaOtReporte" >-</td>
+                    </tr>
+
+                </tbody>
+            </table>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Conclucion</th>  
+                        <th>estado</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td class="conclucionReporte">-</td>  
+                        <td class="estadoReporte">-</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4>Comentario:</h4>
+            <div class="comentarioReporte">
+                <p class="comReporte"></p>
+            </div>
+
+        </div>
+    </div>
+
 </body>
 <script type="module" src="index.js"></script>
 </html>

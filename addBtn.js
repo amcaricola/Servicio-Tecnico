@@ -1,6 +1,7 @@
 import {orders} from "./getTabla.js"
 import Orders from "./ordersModel.js"
 import postItem from "./postTabla.js"
+import updateTabla from "./UpdateTabla.js"
 
 let d = document
 
@@ -55,6 +56,11 @@ export default function addBtn(idBtn, blackscreen, modal){
                 console.log(orders[id])
                 
                 
+
+
+                updateTabla(orders[id])
+
+
                 // postItem(orders[id])
     
     
