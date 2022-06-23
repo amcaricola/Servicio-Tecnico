@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./index.css">
+    <title>Servicio Tecnico SLM</title>
+</head>
+<body>
+
+    <!-- HEADER -->
+
+    <header>
+        <h1>Servicio Tecnico SLM</h1>
+    </header>
+
+
+    <div class="flow">
+        <!-- SIDE IZQUIERDO -->
+        <aside>
+            <button id="addBtn">Agregar Orden de trabajo</button>
+        </aside>
+    
+        <!-- TABLA DINAMICA -->
+        <section>
+
+            <table id="table">
+                <thead>
+                    <tr>
+                        <th>DocID</th>
+                        <th>Producto</th>
+                        <th>Factura</th>
+                        <th>Cliente</th>
+                        <th>Guia de entrada</th>
+                        <th>Guia de salida</th>
+                        <th>Taller de Servicio</th>
+                        <th>Orden de trabajo</th>
+                        <th>Conclucion</th>
+                        <th>Estado</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                </tbody>
+            </table>
+    
+        </section>
+    </div>
+
+    <!-- TEMPLATE DE TABLA DINAMICA -->
+
+    <template id="crud-template">
+        <tr>
+            <td class="docID" ></td>
+            <td class="itemEntrada" ></td>
+            <td class="numeroFactura" ></td>
+            <td class="clienteFactura" ></td>
+            <td class="numeroEntrada" ></td>
+            <td class="numeroSalida" ></td>
+            <td class="tallerSalida" ></td>
+            <td class="numeroOT" ></td>
+            <td class="conclusion" ></td>
+            <td class="estado" ></td>
+        </tr>
+    </template>
+    
+
+<!-- MODAL DE AGREGAR Y MODIFICAR -->
+    <div class="blackscreen" >
+        <div class="modal">
+
+            <button class="closeModal x-buttonModal">X</button>
+
+            <h2 id="modalTitle">Agregar orden de trabajo</h2>
+            <div id="modalInfo">
+                <h5>Orden de trabajo: #</h5>
+                <h5 id="modalID"></h5>
+            </div>
+
+            <h3 id="documentTitle">Factura:</h3>
+
+            <label name="numeroDoc">Numero de Documento:</label>
+            <input type="text" id="numeroDoc" placeholder="Numero de Documento" autocomplete="disable">
+
+            <label name="fechaDoc">Fecha del documento:</label>
+            <input type="text" id="fechaDoc" placeholder="dd/mm/yyyy" autocomplete="disable">
+
+            <label name="clienteDoc">Cliente del documento:</label>
+            <input type="text" id="clienteDoc" placeholder="cliente del documento" autocomplete="disable">
+
+            <label name="itemEntrada" class="itemEntrada">Codigo del Producto:</label>
+            <input type="text" id="itemEntrada"   class="itemEntrada"placeholder="Producto" autocomplete="disable">
+
+            <p>Comentario:</p>
+            <textarea name="comentario" id="comentario" cols="30" rows="10"></textarea>
+            <div>
+                <button class="closeModal">Cerrar</button>
+                <button class="accionModal" data-action="agregar">Agregar</button>
+            </div>
+
+            
+        </div>
+    </div>
+    
+
+    <!-- CONTEXT MENU -->
+
+    <div class="contexMenu">
+
+            <div id="liID">Documento seleccionado:</div>
+            <div data-action="factura" class="selector">Agregar/Editar Factura o Producto</div>
+            <div data-action="entrada" class="selector">Agregar/Editar Guia de Entrada</div>
+            <div data-action="salida" class="selector">Agregar/Editar Guia de Salida</div>
+            <div data-action="taller" class="selector">Agregar/Editar OT de taller</div>
+            <div data-action="conclucion" class="selector">Agregar/Editar Conclucion</div>
+    </div>
+
+</body>
+<script type="module" src="index.js"></script>
+</html>

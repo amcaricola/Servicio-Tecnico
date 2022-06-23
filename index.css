@@ -1,0 +1,214 @@
+body , html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+header{
+    position: fixed;
+    background-color:royalblue;
+    color: whitesmoke;
+    height: 125px;
+    width: 100vw;
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    box-sizing: border-box;
+    z-index: 900;
+    
+    
+}
+
+.flow {
+    box-sizing: border-box;
+    display: flex;
+    width: 100vw;
+}
+
+
+/* ASIDE  - BOTONES DE LA IZQUIERDA */
+
+aside{
+    position: fixed;
+    background-color: gray;
+    padding: 50px 25px;
+    height: 100vh;
+    z-index: 800;
+}
+
+aside button {
+    margin-top: 125px;
+    color: whitesmoke;
+    background-color: royalblue;
+    font-size: 1.5rem;
+    width: 150px ;
+    height: 130px;
+}
+
+
+/* SECTION - TABLAS  */
+
+section{
+    width: 100%;
+    margin-left: 175px;
+    margin-top: 150px;
+}
+
+section table {
+    margin: 1rem  5%;
+    width: 90%;
+}
+
+table thead{
+    position: sticky;
+}
+
+th{
+    background-color: darkgray;
+}
+
+table, tr, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 5px;
+}
+
+.docID, .numeroFactura, .numeroEntrada, .numeroSalida{
+    text-align: center;
+}
+
+/*  MODAL  */
+
+.blackscreen {
+    position: fixed;
+    z-index: 1000;
+    background-color:  rgba(0, 0, 0, 0.7);
+    opacity: 0%;
+
+
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    visibility: hidden;
+    
+    transition: all 0.3s ease;
+
+    display: grid;
+    justify-content: center ;
+    align-items: center;
+
+}
+
+.modalActive {
+    opacity: 100%;
+    visibility: visible;
+}
+
+.modal{
+    box-sizing: border-box;
+    position: relative;
+    z-index: 1001;
+    background-color: white;
+    height: 700px;
+    width: 400px ;
+
+    padding: 25px 40px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+label, input {
+    margin-top: 10px; 
+}
+
+textarea {
+
+    height: 140px;
+    resize: none;
+    padding:10px ;
+  }
+
+  input{
+    padding:10px ;
+  }
+
+.x-buttonModal{
+    position: absolute;
+    right: 25px;
+    top: 25px;
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    border: 1px solid black;
+}
+
+.modal h2{
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.modal h3{
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.modal #modalInfo{
+    display: flex;
+    justify-content: flex-start;
+
+}
+
+.modal div{
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.modal div button{
+    margin-top: 20px;
+    padding: 10px 30px;
+
+}
+
+
+/* CONTEX MENU */
+
+.contexMenu{
+    background-color: whitesmoke;
+    z-index: 1000;
+    position: fixed;
+    width: fit-content;
+    border-radius: 5px;
+    left:20px; 
+    visibility: hidden;
+
+
+    
+    
+}
+
+
+.contexMenu  div{ 
+    border-radius: inherit;
+    padding: 10px ;
+    font-size: large;
+    list-style: none;
+    cursor: pointer;
+     
+}
+
+#liID{
+    background-color: gray;
+    color: white;
+    font-weight: bold;
+}
+
+.contexMenu  div:hover {
+    background-color: royalblue;
+    color: white;
+
+}
