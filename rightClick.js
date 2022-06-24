@@ -1,25 +1,44 @@
 import {orders} from "./getTabla.js"
 
-
+let w = window
 let d = document
 
 
 export default function rightClick (contexMenu){
     
     let $contexMenu = d.querySelector(contexMenu)
-
+    
     d.addEventListener("contextmenu", e => {
         e.preventDefault()
-
-
+        
+        
         if (e.target.matches("td")){
             let id = e.target.dataset.id
             let otAsignada = orders[id]
+
             d.querySelector("#liID").textContent = `Documento seleccionado: # ${otAsignada.docID}`
-            d.querySelector("#liID").dataset.id = id;
+            let $cm = d.querySelectorAll(".selector")
+            $cm.forEach(e => {e.dataset.id = id;})
+
+
             $contexMenu.style.visibility = "visible"
-            $contexMenu.style.top = `${e.clientY}px `
-            $contexMenu.style.left = `${e.clientX}px `
+            
+            let wHeight = w.innerHeight
+            
+            if (e.clientY > (wHeight * 0.65)){
+
+                $contexMenu.style.top = null
+                $contexMenu.style.left = `${e.clientX}px `
+                $contexMenu.style.bottom = `${wHeight - e.clientY}px`
+                
+            }else{
+                $contexMenu.style.bottom = null
+                $contexMenu.style.top = `${e.clientY}px `
+                $contexMenu.style.left = `${e.clientX}px `
+
+
+            }
+
         }
     })
     
@@ -29,25 +48,7 @@ export default function rightClick (contexMenu){
         }
 
 
-        if (e.target.matches(`${contexMenu} .selector`)){
-            
-
-            switch (e.target.dataset.action){
-                case "factura":
-                    break;
-                case "entrada":
-                    break;
-                case "salida":
-                    break;
-                case "taller":
-                    break;
-                case "conclucion":
-                    break;
-
-            }
-            
-            $contexMenu.style.visibility = "hidden"
-        }
+        
 
         
     })

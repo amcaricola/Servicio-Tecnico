@@ -76,7 +76,7 @@ table, tr, th, td {
     padding: 5px;
 }
 
-.docID, .numeroFactura, .numeroEntrada, .numeroSalida{
+.docID, .numeroFactura, .numeroEntrada, .numeroSalida, .estado{
     text-align: center;
 }
 

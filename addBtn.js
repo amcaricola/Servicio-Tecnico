@@ -24,21 +24,33 @@ export default function addBtn(idBtn, blackscreen, modal){
         if (e.target.matches(idBtn)){
 
             d.querySelector(blackscreen).classList.toggle("modalActive")
+
+            d.querySelector(modal.title).textContent = "Agregar orden de trabajo"
             
-            d.querySelector(".itemEntrada").style.visibility = "visible"
+            let item =  d.querySelectorAll(".itemEntradam")
+            item.forEach(e => {e.style.visibility = "visible"})
+
+
             d.querySelector(modal.idOT).textContent = `${orders.length +1}`
             d.querySelector(modal.docNumber).value = ""
             d.querySelector(modal.docDate).value = ""
             d.querySelector(modal.docClient).value = ""
             d.querySelector(modal.product).value = ""
             d.querySelector(modal.comment).value = ""    
-            d.querySelector(modal.add).dataset.action == "agregar" 
+            d.querySelector(modal.add).textContent = "Agregar" 
+            d.querySelector(modal.add).dataset.action = "agregar" 
         }
 
 
         // BOTON DE "AGREGAR" EN MODAL
         if (e.target.matches(modal.add)){
             if(e.target.dataset.action == "agregar"){
+
+                let date =  d.querySelector(modal.docDate).value
+
+                if (!/^[0-9]{2}\/[0-9]{2}\/[0-9]{4}$/.test(date)) {
+                    return alert("la fecha no es valida!")
+                }
                 
                 let id = orders.length
     

@@ -11,6 +11,15 @@ export async function traerDatos (tabla, template) {
     let $fragment = d.createDocumentFragment()
     let $template = document.getElementById(template).content
 
+    function estado(item){
+
+        if(item.conclusion) {return "Cerrada"}
+        if(item.numeroOT) {return "Analisis"}
+        if(item.numeroSalida) {return "Preparacion"}
+        if(item.numeroEntrada) {return "recibido"}
+        if(item.numeroFactura) {return "solicitud"}
+    }
+
 
     try{
         let peticion = await fetch("./db.json")
@@ -24,6 +33,7 @@ export async function traerDatos (tabla, template) {
             
             orders.push(new Orders(i)) 
             
+
             
             $template.querySelector(".docID").textContent = i.docID
             $template.querySelector(".itemEntrada").textContent = i.itemEntrada
@@ -34,7 +44,7 @@ export async function traerDatos (tabla, template) {
             $template.querySelector(".tallerSalida").textContent = i.tallerSalida
             $template.querySelector(".numeroOT").textContent = i.numeroOT
             $template.querySelector(".conclusion").textContent = i.conclusion
-            $template.querySelector(".estado").textContent = i.estado
+            $template.querySelector(".estado").textContent = estado(i)
 
             $template.querySelector(".docID").dataset.id = index
             $template.querySelector(".itemEntrada").dataset.id = index
@@ -64,3 +74,5 @@ export async function traerDatos (tabla, template) {
 }
 
 export {orders}
+
+

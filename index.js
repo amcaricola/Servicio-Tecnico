@@ -1,5 +1,7 @@
 import addBtn from "./addBtn.js"
 import {traerDatos, orders} from "./getTabla.js"
+import putButtons from "./PutBtns.js"
+import updateModal from "./putTabla.js"
 import tablaReporte from "./reporteTabla.js"
 import rightClick from "./rightClick.js"
 
@@ -58,6 +60,34 @@ d.addEventListener("DOMContentLoaded", e =>{
         estado: ".estadoReporte",
         comentario: ".comReporte"
     })
+
+    updateModal( ".contexMenu",
+        ".blackscreen",
+        {
+            title: "#modalTitle",
+            idOT: "#modalID",
+            docTitle : "#documentTitle",
+            docNumber: "#numeroDoc",
+            docDate: "#fechaDoc",
+            docClient: "#clienteDoc",
+            product: "#itemEntrada",
+            comment: "#comentario",
+            add:".accionModal"
+        })
+
+        putButtons(
+        ".blackscreen",
+        {
+            title: "#modalTitle",
+            idOT: "#modalID",
+            docTitle : "#documentTitle",
+            docNumber: "#numeroDoc",
+            docDate: "#fechaDoc",
+            docClient: "#clienteDoc",
+            product: "#itemEntrada",
+            comment: "#comentario",
+            add:".accionModal"
+        })
 
 })
 
