@@ -1,9 +1,12 @@
 import addBtn from "./addBtn.js"
 import {traerDatos, orders} from "./getTabla.js"
+import { logging } from "./Logging.js"
 import putButtons from "./PutBtns.js"
 import updateModal from "./putTabla.js"
 import tablaReporte from "./reporteTabla.js"
 import rightClick from "./rightClick.js"
+
+
 
 
 
@@ -17,6 +20,8 @@ let d = document
 
 
 d.addEventListener("DOMContentLoaded", e =>{
+
+    logging("#loggingBtn", ".loggingScreen","#modoAdmin", "#checkAdmin",".closelogging","#addBtn")
      
     traerDatos("table","crud-template")
     

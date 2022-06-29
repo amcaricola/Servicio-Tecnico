@@ -35,6 +35,8 @@ aside{
     padding: 50px 25px;
     height: 100vh;
     z-index: 800;
+    display: flex;
+    flex-direction: column;
 }
 
 aside button {
@@ -44,6 +46,15 @@ aside button {
     font-size: 1.5rem;
     width: 150px ;
     height: 130px;
+}
+
+#addBtn {
+    visibility: hidden;
+}
+
+#loggingBtn {
+    visibility: visible;
+
 }
 
 
@@ -88,11 +99,10 @@ table, tr, th, td {
     background-color:  rgba(0, 0, 0, 0.7);
     opacity: 0%;
 
-
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    width: 100%;
+    height: 100%;
+    top:0;
+    left: -100%;
 
     visibility: hidden;
     
@@ -106,6 +116,7 @@ table, tr, th, td {
 
 .modalActive {
     opacity: 100%;
+    left: 0;
     visibility: visible;
 }
 
@@ -164,16 +175,31 @@ textarea {
 
 }
 
-.modal div{
+.modal .btnsm{
     display: flex;
     justify-content: space-between;
 
 }
 
-.modal div button{
+.modal .btnsm button{
     margin-top: 20px;
     padding: 10px 30px;
 
+}
+
+.conclum {
+    position: absolute;
+    top: 170px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    flex-wrap: wrap;   
+    visibility: hidden;
+
+}
+
+.conclum div{
+    margin: 25px 0 ;
 }
 
 
@@ -187,9 +213,6 @@ textarea {
     border-radius: 5px;
     left:20px; 
     visibility: hidden;
-
-
-    
     
 }
 
@@ -271,3 +294,58 @@ textarea {
     margin: 0;
 } 
 
+/* logging screen */
+
+.loggingScreen {
+    position: fixed;
+    z-index: 1000;
+    background-color:  rgba(0, 0, 0, 0.7);
+    opacity: 0%;
+
+    width: 100%;
+    height: 100%;
+    top:0;
+    left: -100%;
+
+    visibility: hidden;
+    
+    transition: all 0.3s ease;
+
+    display: grid;
+    justify-content: center ;
+    align-items: center;
+
+}
+
+.loggingScreenOn{
+    opacity: 100%;
+    left: 0;
+    visibility: visible;
+}
+
+.logging{
+
+    box-sizing: border-box;
+    position: relative;
+    z-index: 1001;
+    background-color: white;
+    height: 300px;
+    width: 400px ;
+
+    padding: 25px 40px;
+
+    display:grid;
+    justify-content: center;
+
+}
+
+.logging h5, .logging h2 {
+    margin: 0 ;
+}
+
+.logging input{
+    margin-bottom: 15px;
+    padding: 10px;
+    height: 25px;
+
+}

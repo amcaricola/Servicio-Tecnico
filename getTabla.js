@@ -22,7 +22,7 @@ export async function traerDatos (tabla, template) {
 
 
     try{
-        let peticion = await fetch("./db.json")
+        let peticion = await fetch("https://sertecslm.herokuapp.com/api/orders")
 
         let informacion = await peticion.json(); 
 

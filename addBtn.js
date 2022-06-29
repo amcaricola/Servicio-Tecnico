@@ -1,7 +1,7 @@
 import {orders} from "./getTabla.js"
 import Orders from "./ordersModel.js"
-import postItem from "./postTabla.js"
-import updateTabla from "./UpdateTabla.js"
+import {postItem} from "./CRUD.js"
+
 
 let d = document
 
@@ -49,7 +49,7 @@ export default function addBtn(idBtn, blackscreen, modal){
                 let date =  d.querySelector(modal.docDate).value
 
                 if (!/^[0-9]{2}\/[0-9]{2}\/[0-9]{4}$/.test(date)) {
-                    return alert("la fecha no es valida!")
+                    return alert("La fecha no es valida!")
                 }
                 
                 let id = orders.length
@@ -66,21 +66,13 @@ export default function addBtn(idBtn, blackscreen, modal){
                 }))
                 
                 console.log(orders[id])
-                
-                
 
+                postItem(orders[id])
 
-                updateTabla(orders[id])
-
-
-                // postItem(orders[id])
-    
-    
                 d.querySelector(blackscreen).classList.toggle("modalActive")
                 alert("La ORDEN DE TRABAJO fue creada satisfactoraimente!")
     
-    
-                // location.reload()
+                location.reload()
                 
             }
 

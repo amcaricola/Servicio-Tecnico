@@ -19,6 +19,7 @@
     <div class="flow">
         <!-- SIDE IZQUIERDO -->
         <aside>
+            <button id="loggingBtn">Modo Admin</button>
             <button id="addBtn">Agregar Orden de trabajo</button>
         </aside>
     
@@ -36,7 +37,7 @@
                         <th>Guia de salida</th>
                         <th>Taller de Servicio</th>
                         <th>Orden de trabajo</th>
-                        <th>Conclucion</th>
+                        <th>Conclusion</th>
                         <th>Estado</th>
                     </tr>
                 </thead>
@@ -64,6 +65,22 @@
             <td class="estado" ></td>
         </tr>
     </template>
+
+
+
+    <!-- LOGGING SCREEN -->
+
+<div class="loggingScreen">
+    <div class="logging">
+
+        <button class="closelogging x-buttonModal">X</button>
+        <h2>SUPER ADMINISTRADOR</h2>
+        <H5>Favor coloca la contraseña del MODO ADMIN</H5>
+        <input type="password" id="modoAdmin" placeholder="******" autocomplete="off">
+        <button id="checkAdmin">Ingresar</button>
+
+    </div>
+</div>
     
 
 <!-- MODAL DE AGREGAR Y MODIFICAR -->
@@ -80,21 +97,39 @@
 
             <h3 id="documentTitle">Factura:</h3>
 
-            <label name="numeroDoc">Numero de Documento:</label>
-            <input type="text" id="numeroDoc" placeholder="Numero de Documento" autocomplete="disable">
+            <label name="numeroDoc" class="numeroDocm">Numero de Documento:</label>
+            <input type="text" id="numeroDoc"class="numeroDocm" placeholder="Numero de Documento" autocomplete="disable">
 
-            <label name="fechaDoc">Fecha del documento:</label>
-            <input type="text" id="fechaDoc" placeholder="dd/mm/yyyy" autocomplete="disable">
+            <label name="fechaDoc" class="fechaDocm">Fecha del documento:</label>
+            <input type="text" id="fechaDoc" class="fechaDocm" placeholder="dd/mm/yyyy" autocomplete="disable">
 
-            <label name="clienteDoc">Cliente del documento:</label>
-            <input type="text" id="clienteDoc" placeholder="cliente del documento" autocomplete="disable">
+            <label name="clienteDoc" class="clienteDocm">Cliente del documento:</label>
+            <input type="text" id="clienteDoc" class="clienteDocm" placeholder="cliente del documento" autocomplete="disable">
 
             <label name="itemEntrada" class="itemEntradam">Codigo del Producto:</label>
             <input type="text" id="itemEntrada"   class="itemEntradam" placeholder="Producto" autocomplete="disable">
 
+            <form class="conclum">  
+                <div>
+                    <input type="radio" id="concluReparacion" value="REPARACION" name="conclusion" checked>
+                    <label for="concluReparacion" >Reparacion por Taller</label>
+                </div> 
+
+                <div>
+                    <input type="radio" id="concluCambio" value="CAMBIO" name="conclusion">
+                    <label for="concluCambio" >Cambio nuevo producto</label>
+                </div>
+
+                <div>
+                    <input type="radio" id="concluNotacredito" value="NOTA CREDITO" name="conclusion">
+                    <label for="concluNotacredito" >Nota de credito a Cliente</label>
+                </div>
+
+            </form>
+
             <p>Comentario:</p>
             <textarea name="comentario" id="comentario" cols="30" rows="10"></textarea>
-            <div>
+            <div class="btnsm">
                 <button class="closeModal">Cerrar</button>
                 <button class="accionModal" data-action="agregar">Agregar</button>
             </div>
