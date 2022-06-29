@@ -39,6 +39,8 @@ export default function updateModal(contexMenu,blackscreen, modal){
             }
             
             $contexMenu.style.visibility = "hidden"
+            $contexMenu.querySelector(".selector").style.visibility = "hidden"
+            
         }
     })
 

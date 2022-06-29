@@ -46,6 +46,10 @@ export async function postItem(ot){
             })
         })
 
+        alert("La ORDEN DE TRABAJO fue creada satisfactoraimente!")
+
+        location.reload()
+
     }catch(err){
         let message = err.statusText  || "Ocurrio un Error"
         console.log( "beforebegin", `<p><b> Error: ${err.status}: ${message} </b></p>`)
@@ -102,6 +106,10 @@ export async function putItems(ot){
 
             })
         })
+
+        alert("La orden fue Actualizada!")
+
+        location.reload()
 
     }catch(err){
         let message = err.statusText  || "Ocurrio un Error"

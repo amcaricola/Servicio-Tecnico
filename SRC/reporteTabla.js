@@ -1,4 +1,5 @@
-import {orders} from "./getTabla.js"
+import {estado, orders} from "./getTabla.js"
+
 
 
 let d = document
@@ -37,7 +38,7 @@ export default function tablaReporte (idWhitescreen, reporte) {
             d.querySelector(reporte.fechaOT).textContent = otAsignada.fechaOT
 
             d.querySelector(reporte.conclusion).textContent = otAsignada.conclusion
-            d.querySelector(reporte.estado).textContent = ""
+            d.querySelector(reporte.estado).textContent = estado(otAsignada)
             d.querySelector(reporte.comentario).textContent = otAsignada.comentario
 
 

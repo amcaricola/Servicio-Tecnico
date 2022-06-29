@@ -21,7 +21,6 @@ let d = document
 
 d.addEventListener("DOMContentLoaded", e =>{
 
-    logging("#loggingBtn", ".loggingScreen","#modoAdmin", "#checkAdmin",".closelogging","#addBtn")
      
     traerDatos("table","crud-template")
     
@@ -94,8 +93,11 @@ d.addEventListener("DOMContentLoaded", e =>{
             add:".accionModal"
         })
 
-})
-
+        
+        logging("#loggingBtn", ".loggingScreen","#modoAdmin", "#checkAdmin",".closelogging","#addBtn")
+        
+    })
+    
 
 
 

@@ -21,7 +21,7 @@ export default function rightClick (contexMenu){
             let $cm = d.querySelectorAll(".selector")
             $cm.forEach(e => {e.dataset.id = id;})
 
-            if (logged == true){
+            if (logged === true){
                 $contexMenu.style.visibility = "visible"   
                 $contexMenu.querySelector(".selector").style.visibility = "visible"
                 

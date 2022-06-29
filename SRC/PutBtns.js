@@ -19,15 +19,8 @@ export default function putButtons (blackscreen, modal) {
             putNewInfo(id, e.target.dataset.action,modal)
                 
             $bs.classList.toggle("modalActive")
-
-            // console.log(orders[id])
-
             
             putItems(orders[id])
-
-            alert("La orden fue Actualizada!")
-
-            location.reload()
 
 
         }

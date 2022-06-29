@@ -67,12 +67,11 @@ export default function addBtn(idBtn, blackscreen, modal){
                 
                 console.log(orders[id])
 
-                postItem(orders[id])
-
+                
                 d.querySelector(blackscreen).classList.toggle("modalActive")
-                alert("La ORDEN DE TRABAJO fue creada satisfactoraimente!")
+                
+                postItem(orders[id])
     
-                location.reload()
                 
             }
 

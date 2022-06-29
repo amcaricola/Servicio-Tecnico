@@ -3,6 +3,14 @@ import Orders from "./ordersModel.js"
 let d = document,
  orders = []
 
+export function estado(item){
+
+    if(item.conclusion) {return "Cerrada"}
+    if(item.numeroOT) {return "Analisis"}
+    if(item.numeroSalida) {return "Preparacion"}
+    if(item.numeroEntrada) {return "recibido"}
+    if(item.numeroFactura) {return "solicitud"}
+}
 
 
 export async function traerDatos (tabla, template) {
@@ -10,15 +18,6 @@ export async function traerDatos (tabla, template) {
     let $tabla = d.getElementById(tabla)
     let $fragment = d.createDocumentFragment()
     let $template = document.getElementById(template).content
-
-    function estado(item){
-
-        if(item.conclusion) {return "Cerrada"}
-        if(item.numeroOT) {return "Analisis"}
-        if(item.numeroSalida) {return "Preparacion"}
-        if(item.numeroEntrada) {return "recibido"}
-        if(item.numeroFactura) {return "solicitud"}
-    }
 
 
     try{
