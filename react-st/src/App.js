@@ -1,53 +1,51 @@
 import "./App.css";
-import React, { useState} from 'react';
-import Session from "./components/logging";
-import Addbtn from "./components/addBtn";
+import React, { useState } from "react";
 import FromCrud from "./components/formCrud";
-import TableData from "./components/tableData";
-import useAction from "./components/useAction";
-
+import Logging from "./components/Logging";
+import SideButton from "./components/SideButton";
+import TableService from "./components/TableService";
 
 export default function App() {
+  const [logging, setLogging] = useState(false);
+  const [modal, setModal] = useState(false);
+  const [filter, setFilter] = useState(false);
+  // const [action, setAction] = useState(null);
 
-  const [ logging, setLogging ] = useState(false);
-  const [ modal, setModal ] = useState(false)
+  // let actionMethod = (accion) => {
+  //   setAction(action);
+  // };
 
-  let loggingIn = () => setLogging(true);
-
-  let loggingOut = () => setLogging(false);
-
-  let activeModal = () => {
-    (modal)
-    ? setModal(false)
-    : setModal(true)
-  }
-
-  // let actionMethod = (accion) => { useAction(accion)}
-  
- 
   return (
     <div className="App">
-
-      <div className="header">
-        <h1>Servicio tecnico</h1>
-        <Session logging={logging} In={loggingIn} Out={loggingOut}/>
-      </div>
+      <header className="header">
+        <h1>SLM Servicio Tecnico</h1>
+        <Logging logging={logging} setLogging={setLogging} />
+      </header>
 
       <section className="section">
-
         <div className="aside">
-          <Addbtn click={activeModal} logging={logging} />
+          <SideButton
+            title={!filter ? "Ver OT Cerradas" : "ver OT Activas"}
+            click={() => (!filter ? setFilter(true) : setFilter(false))} // funcion de cambio de la tabla
+            visibility={true}
+          />
+          <SideButton
+            title="Agregar Orden"
+            click={() => setModal(true)}
+            visibility={logging}
+          />
         </div>
 
         <div className="content">
-          <TableData/>
+          <TableService filter={filter} />
         </div>
-
       </section>
 
-      <FromCrud isActive={modal} clickClose={activeModal} action={actionMethod}/>
-
+      {/* <FromCrud
+        isActive={modal}
+        closeModal={() => setModal(false)}
+        action={actionMethod}
+      /> */}
     </div>
   );
 }
-

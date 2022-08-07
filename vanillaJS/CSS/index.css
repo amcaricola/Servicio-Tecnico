@@ -1,350 +1,342 @@
-body , html {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, Helvetica, sans-serif;
+body,
+html {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-header{
-    position: fixed;
-    background-color:royalblue;
-    color: whitesmoke;
-    height: 125px;
-    width: 100vw;
-    padding: 20px;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    box-sizing: border-box;
-    z-index: 900;
-    
-    
+header {
+  position: fixed;
+  background-color: royalblue;
+  color: whitesmoke;
+  height: 125px;
+  width: 100vw;
+  padding: 20px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  box-sizing: border-box;
+  z-index: 900;
 }
 
 .flow {
-    box-sizing: border-box;
-    display: flex;
-    width: 100vw;
+  box-sizing: border-box;
+  display: flex;
+  width: 100vw;
 }
-
 
 /* ASIDE  - BOTONES DE LA IZQUIERDA */
 
-aside{
-    position: fixed;
-    background-color: gray;
-    padding: 50px 25px;
-    height: 100vh;
-    z-index: 800;
-    display: flex;
-    flex-direction: column;
+aside {
+  position: fixed;
+  background-color: gray;
+  padding: 50px 25px;
+  height: 100vh;
+  z-index: 800;
+  display: flex;
+  flex-direction: column;
 }
 
 aside button {
-    margin-top: 125px;
-    color: whitesmoke;
-    background-color: royalblue;
-    font-size: 1.5rem;
-    width: 150px ;
-    height: 130px;
+  margin-top: 125px;
+  color: whitesmoke;
+  background-color: royalblue;
+  font-size: 1.5rem;
+  width: 150px;
+  height: 130px;
 }
 
 #addBtn {
-   display: none;
+  display: none;
 }
 
 #loggingBtn {
-    display: block
+  display: block;
 }
-
 
 /* SECTION - TABLAS  */
 
-section{
-    width: 100%;
-    margin-left: 175px;
-    margin-top: 150px;
+section {
+  width: 100%;
+  margin-left: 175px;
+  margin-top: 150px;
 }
 
 section table {
-    margin: 1rem  5%;
-    width: 90%;
-    
+  margin: 1rem 5%;
+  width: 90%;
 }
 
 table {
-    margin-bottom: 25px;
+  margin-bottom: 25px;
 }
 
-
-th{
-    background-color: darkgray;
+th {
+  background-color: darkgray;
 }
 
-table, tr, th, td {
-    border: 1px solid black;
-    border-collapse: collapse;
-    padding: 5px;
+table,
+tr,
+th,
+td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding: 5px;
 }
 
-.docID, .numeroFactura, .numeroEntrada, .numeroSalida, .estado{
-    text-align: center;
+.docID,
+.numeroFactura,
+.numeroEntrada,
+.numeroSalida,
+.estado {
+  text-align: center;
+}
+
+.estadoCerrado {
+  color: royalblue;
 }
 
 /*  MODAL  */
 
 .blackscreen {
-    position: fixed;
-    z-index: 1000;
-    background-color:  rgba(0, 0, 0, 0.7);
-    opacity: 0%;
+  position: fixed;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.7);
+  opacity: 0%;
 
-    width: 100%;
-    height: 100%;
-    top:0;
-    left: -100%;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: -100%;
 
-    visibility: hidden;
-    
-    transition: all 0.3s ease;
+  visibility: hidden;
 
-    display: grid;
-    justify-content: center ;
-    align-items: center;
+  transition: all 0.3s ease;
 
+  display: grid;
+  justify-content: center;
+  align-items: center;
 }
 
 .modalActive {
-    opacity: 100%;
-    left: 0;
-    visibility: visible;
+  opacity: 100%;
+  left: 0;
+  visibility: visible;
 }
 
-.modal{
-    box-sizing: border-box;
-    position: relative;
-    z-index: 1001;
-    background-color: white;
-    height: 700px;
-    width: 400px ;
+.modal {
+  box-sizing: border-box;
+  position: relative;
+  z-index: 1001;
+  background-color: white;
+  height: 700px;
+  width: 400px;
 
-    padding: 25px 40px;
+  padding: 25px 40px;
 
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
-label, input {
-    margin-top: 10px; 
+label,
+input {
+  margin-top: 10px;
 }
 
 textarea {
-
-    height: 140px;
-    resize: none;
-    padding:10px ;
-  }
-
-  input{
-    padding:10px ;
-  }
-
-.x-buttonModal{
-    position: absolute;
-    right: 25px;
-    top: 25px;
-    height: 25px;
-    width: 25px;
-    border-radius: 50%;
-    border: 1px solid black;
+  height: 140px;
+  resize: none;
+  padding: 10px;
 }
 
-.modal h2{
-    margin-top: 0px;
-    margin-bottom: 0px;
+input {
+  padding: 10px;
 }
 
-.modal h3{
-    margin-top: 0px;
-    margin-bottom: 0px;
+.x-buttonModal {
+  position: absolute;
+  right: 25px;
+  top: 25px;
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  border: 1px solid black;
 }
 
-.modal #modalInfo{
-    display: flex;
-    justify-content: flex-start;
-
+.modal h2 {
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
 
-.modal .btnsm{
-    display: flex;
-    justify-content: space-between;
-
+.modal h3 {
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
 
-.modal .btnsm button{
-    margin-top: 20px;
-    padding: 10px 30px;
+.modal #modalInfo {
+  display: flex;
+  justify-content: flex-start;
+}
 
+.modal .btnsm {
+  display: flex;
+  justify-content: space-between;
+}
+
+.modal .btnsm button {
+  margin-top: 20px;
+  padding: 10px 30px;
 }
 
 .conclum {
-    position: absolute;
-    top: 170px;
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    flex-wrap: wrap;   
-    visibility: hidden;
-
+  position: absolute;
+  top: 170px;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  flex-wrap: wrap;
+  visibility: hidden;
 }
 
-.conclum div{
-    margin: 25px 0 ;
+.conclum div {
+  margin: 25px 0;
 }
-
 
 /* CONTEX MENU */
 
-.contexMenu{
-    background-color: whitesmoke;
-    z-index: 1000;
-    position: fixed;
-    width: fit-content;
-    border-radius: 5px;
-    left:20px; 
-    visibility: hidden;
-    
+.contexMenu {
+  background-color: whitesmoke;
+  z-index: 1000;
+  position: fixed;
+  width: fit-content;
+  border-radius: 5px;
+  left: 20px;
+  visibility: hidden;
 }
 
-
-.contexMenu  div{ 
-    border-radius: inherit;
-    padding: 10px ;
-    font-size: large;
-    list-style: none;
-    cursor: pointer;
-     
+.contexMenu div {
+  border-radius: inherit;
+  padding: 10px;
+  font-size: large;
+  list-style: none;
+  cursor: pointer;
 }
 
-#liID{
-    background-color: gray;
-    color: white;
-    font-weight: bold;
+#liID {
+  background-color: gray;
+  color: white;
+  font-weight: bold;
 }
 
-.contexMenu  div:hover {
-    background-color: royalblue;
-    color: white;
-
+.contexMenu div:hover {
+  background-color: royalblue;
+  color: white;
 }
 
 /* Full Reporte */
 
 .whitescreen {
-    position: fixed;
-    z-index: 1000;
-    background-color:  rgba(0, 0, 0, 0.7);
-    
-    opacity: 0%;
-    visibility: hidden;
+  position: fixed;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.7);
 
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
+  opacity: 0%;
+  visibility: hidden;
 
-    
-    transition: all 0.3s ease;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
 
-    display: grid;
-    justify-content: center ;
-    align-items: center;
+  transition: all 0.3s ease;
+
+  display: grid;
+  justify-content: center;
+  align-items: center;
 }
 
 .wsActive {
-    opacity: 100%;
-    visibility: visible;
+  opacity: 100%;
+  visibility: visible;
 }
 
-.fullReporte{
-    box-sizing: border-box;
-    position: relative;
-    z-index: 1001;
-    background-color: white;
-    height: 600px;
-    width: 800px ;
+.fullReporte {
+  box-sizing: border-box;
+  position: relative;
+  z-index: 1001;
+  background-color: white;
+  height: 600px;
+  width: 800px;
 
-    padding: 25px 40px;
+  padding: 25px 40px;
 
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
-.fullReporte table{
-    text-align: center;
+.fullReporte table {
+  text-align: center;
 }
 
-.comentarioReporte{
-    height: 150px;
-    border: 1px solid black;
-    padding: 10px;
+.comentarioReporte {
+  height: 150px;
+  border: 1px solid black;
+  padding: 10px;
 }
 
 .fullReporte h4 {
-    margin: 0;
-} 
+  margin: 0;
+}
 
 /* logging screen */
 
 .loggingScreen {
-    position: fixed;
-    z-index: 1000;
-    background-color:  rgba(0, 0, 0, 0.7);
-    opacity: 0%;
+  position: fixed;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.7);
+  opacity: 0%;
 
-    width: 100%;
-    height: 100%;
-    top:0;
-    left: -100%;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: -100%;
 
-    visibility: hidden;
-    
-    transition: all 0.3s ease;
+  visibility: hidden;
 
-    display: grid;
-    justify-content: center ;
-    align-items: center;
+  transition: all 0.3s ease;
 
+  display: grid;
+  justify-content: center;
+  align-items: center;
 }
 
-.loggingScreenOn{
-    opacity: 100%;
-    left: 0;
-    visibility: visible;
+.loggingScreenOn {
+  opacity: 100%;
+  left: 0;
+  visibility: visible;
 }
 
-.logging{
+.logging {
+  box-sizing: border-box;
+  position: relative;
+  z-index: 1001;
+  background-color: white;
+  height: 300px;
+  width: 400px;
 
-    box-sizing: border-box;
-    position: relative;
-    z-index: 1001;
-    background-color: white;
-    height: 300px;
-    width: 400px ;
+  padding: 25px 40px;
 
-    padding: 25px 40px;
-
-    display:grid;
-    justify-content: center;
-
+  display: grid;
+  justify-content: center;
 }
 
-.logging h5, .logging h2 {
-    margin: 0 ;
+.logging h5,
+.logging h2 {
+  margin: 0;
 }
 
-.logging input{
-    margin-bottom: 15px;
-    padding: 10px;
-    height: 25px;
-
+.logging input {
+  margin-bottom: 15px;
+  padding: 10px;
+  height: 25px;
 }

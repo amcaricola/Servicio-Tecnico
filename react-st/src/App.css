@@ -1,3 +1,18 @@
+:root {
+  --white: #fdfffc;
+  --black: #1c1c1c;
+  --blue: #3454d1;
+  --gray: #7d7c7a;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
 .App {
   position: absolute;
   left: 0;
@@ -7,49 +22,61 @@
   margin: 0;
 }
 
+input {
+  border-radius: 8px;
+  border: transparent;
+  padding: auto 10px;
+  margin: 5px 0;
+  height: 30px;
+  min-width: 200px;
+}
+
 /* HEADER */
 
 .header {
   position: sticky;
-  background-color: royalblue;
-  color: whitesmoke;
-  min-height: 150px;
+  background-color: var(--black);
+  color: var(--white);
+  height: 150px;
   width: 100vw;
-  padding: 20px;
+  padding: 20px 40px;
   box-sizing: border-box;
   z-index: 900;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  text-align: center;
 }
 
-.header h3{
-  border: thin solid white;
-  padding:5px 0 ;
+.header h1 {
+  margin: 0;
+}
+
+.logging {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.logging input[type="submit"] {
+  background-color: var(--blue);
+  color: var(--white);
+  padding: 5px 0;
   cursor: pointer;
-}
-
-.header input{
-  padding: 5px;
 }
 
 /* SECTION WRAP */
 
-.section{
+.section {
   width: 100%;
-  height: auto;
+  height: calc(100vh - 150px);
+  display: flex;
 }
 
 /* ASIDE */
 
-.aside{
-  position: fixed;
-  box-sizing: border-box;
-  background-color: gray;
-  padding: 50px 25px;
-  top: 150px;
-  bottom: 0px;
+.aside {
+  background-color: var(--blue);
+  padding: 25px 25px;
   width: 200px;
   z-index: 800;
   display: flex;
@@ -58,71 +85,70 @@
 }
 
 .aside button {
-  color: whitesmoke;
-  background-color: royalblue;
+  color: var(--white);
+  background-color: var(--black);
   font-size: 1.5rem;
-  width: 150px ;
-  height: 130px;
-  border: thin solid white;
+  width: 150px;
+  height: 80px;
+  border: transparent;
+  border-radius: 10px;
+  margin: 10px 0;
 }
 
 /* content */
 
-.content{
+/* .content {
   position: fixed;
   top: 150px;
   left: 200px;
   right: 0;
-}
+} */
 
 /* TABLA */
 
-.content table {
-  margin: 1rem  5%;
+/* .content table {
+  margin: 1rem 5%;
   width: 90%;
-  
 }
 
 table {
   margin-bottom: 25px;
 }
 
-
-th{
+th {
   background-color: darkgray;
 }
 
-
-table, tr, th, td {
+table,
+tr,
+th,
+td {
   border: 1px solid black;
   border-collapse: collapse;
   padding: 5px;
   text-align: center;
-}
-
-
+} */
 
 /*  MODAL  */
 
 .blackscreen {
   position: fixed;
   z-index: 1000;
-  background-color:  rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.7);
   opacity: 0%;
 
   width: 100%;
   height: 100%;
-  top:0;
+  top: 0;
   left: -100%;
 
   visibility: hidden;
-  
+
   transition: all 0.3s ease;
 
   display: grid;
-  justify-content: center ;
+  justify-content: center;
   align-items: center;
-
 }
 
 .modalActive {
@@ -131,13 +157,13 @@ table, tr, th, td {
   visibility: visible;
 }
 
-.modal{
+.modal {
   box-sizing: border-box;
   position: relative;
   z-index: 1001;
   background-color: white;
   height: 700px;
-  width: 400px ;
+  width: 400px;
 
   padding: 25px 40px;
 
@@ -145,22 +171,17 @@ table, tr, th, td {
   flex-direction: column;
 }
 
-label, input {
-  margin-top: 10px; 
-}
-
 textarea {
-
   height: 140px;
   resize: none;
-  padding:10px ;
+  padding: 10px;
 }
 
-input{
-  padding:10px ;
+input {
+  padding: 10px;
 }
 
-.x-buttonModal{
+.x-buttonModal {
   position: absolute;
   right: 25px;
   top: 25px;
@@ -170,32 +191,29 @@ input{
   border: 1px solid black;
 }
 
-.modal h2{
+.modal h2 {
   margin-top: 0px;
   margin-bottom: 0px;
 }
 
-.modal h3{
+.modal h3 {
   margin-top: 0px;
   margin-bottom: 0px;
 }
 
-.modal #modalInfo{
+.modal #modalInfo {
   display: flex;
   justify-content: flex-start;
-
 }
 
-.modal .btnsm{
+.modal .btnsm {
   display: flex;
   justify-content: space-between;
-
 }
 
-.modal .btnsm button{
+.modal .btnsm button {
   margin-top: 20px;
   padding: 10px 30px;
-
 }
 
 .conclum {
@@ -204,11 +222,10 @@ input{
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  flex-wrap: wrap;   
+  flex-wrap: wrap;
   visibility: hidden;
-
 }
 
-.conclum div{
-  margin: 25px 0 ;
+.conclum div {
+  margin: 25px 0;
 }
