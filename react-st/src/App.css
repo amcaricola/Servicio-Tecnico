@@ -9,7 +9,10 @@
   box-sizing: border-box;
 }
 
-body {
+body,
+input,
+textarea {
+  font-size: 1rem;
   font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -50,6 +53,27 @@ input {
 .header h1 {
   margin: 0;
 }
+.header div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.nav {
+  margin-right: 30px;
+}
+
+.nav a {
+  text-decoration: none;
+  color: var(--blue);
+  margin-right: 15px;
+  font-weight: bold;
+}
+
+.nav a.navActive {
+  color: var(--white);
+}
 
 .logging {
   display: flex;
@@ -62,6 +86,22 @@ input {
   color: var(--white);
   padding: 5px 0;
   cursor: pointer;
+}
+
+/* ------HOME PAGE------ */
+
+.home {
+  height: calc(100vh - 150px);
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+
+.home h2 {
+  font-size: 72px;
+  background: radial-gradient(var(--blue), var(--black));
+  color: transparent;
+  background-clip: text;
 }
 
 /* SECTION WRAP */
@@ -171,10 +211,22 @@ td {
   flex-direction: column;
 }
 
+.modal input {
+  border: thin solid var(--black);
+  width: 100%;
+  height: 40px;
+  padding: 0 20px;
+  align-items: center;
+  font-size: 1rem;
+  margin-bottom: 15px;
+}
+
 textarea {
   height: 140px;
   resize: none;
   padding: 10px;
+  width: 100%;
+  padding: 10px 20px;
 }
 
 input {
@@ -183,12 +235,17 @@ input {
 
 .x-buttonModal {
   position: absolute;
-  right: 25px;
-  top: 25px;
-  height: 25px;
-  width: 25px;
-  border-radius: 50%;
-  border: 1px solid black;
+  right: 15px;
+  top: 15px;
+  height: 35px;
+  width: 35px;
+  border-radius: 10px;
+  text-align: center;
+  align-items: center;
+  color: var(--white);
+  background-color: var(--black);
+  border: none;
+  cursor: pointer;
 }
 
 .modal h2 {
@@ -211,9 +268,16 @@ input {
   justify-content: space-between;
 }
 
-.modal .btnsm button {
+.btnsm input {
   margin-top: 20px;
   padding: 10px 30px;
+  min-width: 0;
+  width: 150px;
+  text-align: center;
+  color: var(--white);
+  background-color: var(--black);
+  border: none;
+  cursor: pointer;
 }
 
 .conclum {

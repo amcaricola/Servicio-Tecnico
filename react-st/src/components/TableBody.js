@@ -32,7 +32,7 @@ const tableFiltered = ({
 const TableBody = ({ data, filter }) => {
   const filteredData = data.filter((el) => el.cerrado === filter);
 
-  return filteredData.map((el) => tableFiltered(el));
+  return <tbody>{filteredData.map((el) => tableFiltered(el))}</tbody>;
 };
 
 export default TableBody;
