@@ -1,5 +1,6 @@
 class ServiceOrder {
   constructor({
+    id,
     _id,
     docID,
     numeroFactura,
@@ -17,7 +18,7 @@ class ServiceOrder {
     comentario,
     cerrado,
   }) {
-    this._id = _id;
+    this._id = _id || id;
     this.docID = docID;
     this.numeroFactura = numeroFactura;
     this.clienteFactura = clienteFactura;

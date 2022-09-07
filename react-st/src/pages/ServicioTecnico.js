@@ -1,20 +1,13 @@
 import "../App.css";
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import SideButton from "../components/SideButton";
 import TableService from "../components/TableService";
 import FromCrud from "../components/FormCrud";
-import { useEffect } from "react";
-import { httpFetch } from "../helper/httpFetch";
 import LoginContext from "../context/LoginContext";
-import { useContext } from "react";
-
-let url = "https://api.amcaricola.com/sertec-slm/db.json";
-
-const initialAction = {
-  name: "",
-  title: "",
-  method: "",
-};
+import ActionServiceContext from "../context/ActionServiceContext";
+import ServiceOrderContext from "../context/ServiceOrderContext";
+import ContextMenu from "../components/ContextMenu";
+import ReportModal from "../context/ReportModal";
 
 const initialData = {
   documento: "",
@@ -26,25 +19,33 @@ const initialData = {
 
 const ServicioTecnico = () => {
   const { logging } = useContext(LoginContext);
-  const [modal, setModal] = useState(false);
+  const { setOrders } = useContext(ServiceOrderContext);
+  const { setAction } = useContext(ActionServiceContext);
+  const { setActiveModal } = useContext(ReportModal);
+
+  // const [modal, setModal] = useState(false);
   const [filter, setFilter] = useState(false);
-  const [tableData, setTableData] = useState([]);
-  const [crudAction, setCrudAction] = useState(initialAction);
+
   const [dataToChange, setDataToChange] = useState(initialData);
 
-  useEffect(() => {
-    const getData = async () => {
-      try {
-        let data = await httpFetch.get(url);
-        setTableData(data);
-      } catch {}
-    };
+  const handleClickAgregar = () => {
+    setDataToChange(initialData);
+    setAction({
+      name: "Agregar",
+      method: "post",
+    });
+    setActiveModal(true);
+  };
 
-    getData();
-  }, []);
-
-  const handleTableDataChange = (value) => {
-    setTableData((oldValue) => [...oldValue, value]);
+  const handleTableDataChange = async (value, method) => {
+    try {
+      let data = await value;
+      method === "post"
+        ? setOrders((oldData) => oldData.concat(data))
+        : console.log("put"); // verificar el metodo de agregar cuando ya este disponible
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   return (
@@ -52,36 +53,29 @@ const ServicioTecnico = () => {
       <section className="section">
         <div className="aside">
           <SideButton
-            title={!filter ? "Ver OT Cerradas" : "ver OT Activas"}
+            title={!filter ? "Ordenes Cerradas" : "Ordenes Activas"}
             click={() => (!filter ? setFilter(true) : setFilter(false))} // funcion de cambio de la tabla
             visibility={true}
-            modal={modal}
-            setCrudAction={setCrudAction}
           />
           <SideButton
             title="Agregar Orden"
-            click={() => {
-              setDataToChange(initialData);
-              setModal(true);
-            }}
+            click={handleClickAgregar}
             visibility={logging}
           />
         </div>
 
         <div className="content">
-          <TableService filter={filter} data={tableData} />
+          <h2>{filter ? "Ordenes Cerradas" : "Ordenes Activas"}</h2>
+          <TableService filter={filter} />
         </div>
       </section>
 
       <FromCrud
-        modal={modal}
-        setModal={setModal}
-        action={crudAction}
         dataToChange={dataToChange}
         setDataToChange={setDataToChange}
-        tableData={tableData}
         handleTableDataChange={handleTableDataChange}
       />
+      <ContextMenu />
     </>
   );
 };

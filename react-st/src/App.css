@@ -14,6 +14,7 @@ input,
 textarea {
   font-size: 1rem;
   font-family: Arial, Helvetica, sans-serif;
+  border-radius: 8px;
 }
 
 .App {
@@ -26,12 +27,11 @@ textarea {
 }
 
 input {
-  border-radius: 8px;
   border: transparent;
   padding: auto 10px;
   margin: 5px 0;
   height: 30px;
-  min-width: 200px;
+  min-width: 220px;
 }
 
 /* HEADER */
@@ -50,29 +50,39 @@ input {
   align-items: center;
 }
 
-.header h1 {
+.header h1,
+h4 {
   margin: 0;
 }
+
 .header div {
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
 }
 
+header .title-header {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
 .nav {
   margin-right: 30px;
 }
 
 .nav a {
   text-decoration: none;
-  color: var(--blue);
+  color: var(--white);
+  padding: 5px 10px;
+  border-radius: 10px;
   margin-right: 15px;
   font-weight: bold;
 }
 
 .nav a.navActive {
-  color: var(--white);
+  background-color: var(--blue);
+  pointer-events: none;
 }
 
 .logging {
@@ -137,26 +147,30 @@ input {
 
 /* content */
 
-/* .content {
-  position: fixed;
-  top: 150px;
-  left: 200px;
-  right: 0;
-} */
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
 /* TABLA */
 
-/* .content table {
+.content table {
   margin: 1rem 5%;
-  width: 90%;
+  width: 96%;
 }
 
 table {
   margin-bottom: 25px;
 }
 
+thead {
+  border-top-left-radius: 25px;
+}
+
 th {
-  background-color: darkgray;
+  background-color: var(--black);
+  color: var(--white);
 }
 
 table,
@@ -167,7 +181,8 @@ td {
   border-collapse: collapse;
   padding: 5px;
   text-align: center;
-} */
+  height: 50px;
+}
 
 /*  MODAL  */
 
@@ -202,8 +217,10 @@ td {
   position: relative;
   z-index: 1001;
   background-color: white;
-  height: 700px;
-  width: 400px;
+  min-height: 700px;
+  min-width: 400px;
+  height: 70vh;
+  width: 70vw;
 
   padding: 25px 40px;
 
@@ -229,7 +246,7 @@ textarea {
   padding: 10px 20px;
 }
 
-input {
+.modal input {
   padding: 10px;
 }
 
@@ -292,4 +309,40 @@ input {
 
 .conclum div {
   margin: 25px 0;
+}
+
+/* MENU CONTEXT */
+
+.context-menu {
+  min-height: 50px;
+  min-width: 50px;
+  display: block;
+  visibility: hidden;
+  background-color: var(--black);
+
+  position: fixed;
+  z-index: 900;
+  padding: 0;
+}
+
+.active-menu {
+  visibility: visible;
+}
+
+.context-menu ul {
+  margin: 0;
+  padding: 0;
+}
+
+.context-menu ul li {
+  font-weight: bold;
+  list-style: none;
+  padding: 15px 20px;
+  background-color: var(--black);
+  color: var(--white);
+  cursor: pointer;
+}
+
+.context-menu ul li:hover {
+  background-color: var(--blue);
 }

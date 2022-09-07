@@ -10,10 +10,13 @@ export default function App() {
   return (
     <div className="App">
       <Header />
+
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/ServicioTecnico" element={<ServicioTecnico />} />
+
         <Route path="/ServicioGrabado" element={<ServicioGrabados />} />
+        <Route path="*" element={<Home />} />
       </Routes>
     </div>
   );

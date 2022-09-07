@@ -15,16 +15,16 @@ const tableFiltered = ({
 }) => {
   return (
     <tr key={_id} id={_id}>
-      <td>{docID}</td>
-      <td>{itemEntrada}</td>
-      <td>{numeroFactura}</td>
-      <td>{clienteFactura}</td>
-      <td>{numeroEntrada}</td>
-      <td>{numeroSalida}</td>
-      <td>{tallerSalida}</td>
-      <td>{numeroOT}</td>
-      <td>{conclusion}</td>
-      <td>{estado}</td>
+      <td data-id={_id}>{docID}</td>
+      <td data-id={_id}>{itemEntrada}</td>
+      <td data-id={_id}>{numeroFactura}</td>
+      <td data-id={_id}>{clienteFactura}</td>
+      <td data-id={_id}>{numeroEntrada}</td>
+      <td data-id={_id}>{numeroSalida}</td>
+      <td data-id={_id}>{tallerSalida}</td>
+      <td data-id={_id}>{numeroOT}</td>
+      <td data-id={_id}>{conclusion}</td>
+      <td data-id={_id}>{estado}</td>
     </tr>
   );
 };

@@ -1,65 +1,43 @@
 import React from "react";
-import ServiceOrder from "../helper/ServiceOrder";
+import { useContext } from "react";
+import ActionServiceContext from "../context/ActionServiceContext";
+// import ReportModal from "../context/ReportModal";
+import ServiceOrderContext from "../context/ServiceOrderContext";
+import makeServiceCrud from "../helper/makeServiceCrud";
 
-const FormCrudInside = ({
-  modal,
-  setModal,
-  action,
-  tableData,
+const FormCrudAgregar = ({
   dataToChange,
   setDataToChange,
   handleTableDataChange,
+  handleClose,
 }) => {
-  const handleClose = () => {
-    setModal(false);
-  };
+  const { orders } = useContext(ServiceOrderContext);
+  const { action } = useContext(ActionServiceContext);
+  // const { setActiveModal } = useContext(ReportModal);
 
   const handleChange = (e) => {
     setDataToChange({ ...dataToChange, [e.target.id]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (action.name === "Agregar") {
-      let newOrder = new ServiceOrder({
-        _id: crypto.randomUUID(),
-        docID: tableData.length + 1,
-        numeroFactura: dataToChange.documento,
-        clienteFactura: dataToChange.cliente,
-        fechaFactura: dataToChange.fecha,
-        numeroEntrada: "",
-        fechaEntrada: "",
-        itemEntrada: dataToChange.producto,
-        numeroSalida: "",
-        fechaSalida: "",
-        tallerSalida: "",
-        numeroOT: "",
-        fechaOT: "",
-        conclusion: "",
-        comentario: dataToChange.comentario,
-        cerrado: false,
-      });
+    const SigleOrder = await makeServiceCrud(dataToChange, action, orders);
 
-      handleTableDataChange(newOrder);
-    }
+    handleTableDataChange(SigleOrder, action.method);
 
     handleClose();
-    console.log(dataToChange);
   };
 
   return (
     <>
-      <button onClick={handleClose} className="closeModal x-buttonModal">
-        ✖
-      </button>
       <h2>{action.name}</h2>
 
       <div>
-        <h5>Orden de trabajo: # {tableData.length + 1}</h5>
+        <h5>Orden de trabajo: # {orders.length + 1}</h5>
       </div>
 
-      <h3>{action.title}</h3>
+      <h3>Factura</h3>
 
       <form onSubmit={handleSubmit}>
         <label>
@@ -68,7 +46,7 @@ const FormCrudInside = ({
             type="text"
             id="documento"
             placeholder="Numero de Documento"
-            autoComplete="disable"
+            autoComplete="off"
             value={dataToChange.documento}
             onChange={(e) => handleChange(e)}
           />
@@ -80,7 +58,7 @@ const FormCrudInside = ({
             type="text"
             id="fecha"
             placeholder="dd/mm/yyyy"
-            autoComplete="disable"
+            autoComplete="off"
             value={dataToChange.fecha}
             onChange={(e) => handleChange(e)}
           />
@@ -92,7 +70,7 @@ const FormCrudInside = ({
             type="text"
             id="cliente"
             placeholder="cliente del documento"
-            autoComplete="disable"
+            autoComplete="off"
             value={dataToChange.cliente}
             onChange={(e) => handleChange(e)}
           />
@@ -104,7 +82,7 @@ const FormCrudInside = ({
             type="text"
             id="producto"
             placeholder="Producto"
-            autoComplete="disable"
+            autoComplete="off"
             value={dataToChange.producto}
             onChange={(e) => handleChange(e)}
           />
@@ -173,4 +151,4 @@ const FormCrudInside = ({
   );
 };
 
-export default FormCrudInside;
+export default FormCrudAgregar;

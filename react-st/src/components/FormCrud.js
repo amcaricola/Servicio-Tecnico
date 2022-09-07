@@ -1,29 +1,41 @@
 import React from "react";
-import FormCrudInside from "./FromCrudInside";
+import FormCrudAgregar from "./FromCrudAgregar";
 import "../App.css";
+import { useContext } from "react";
+import ReportModal from "../context/ReportModal";
+import ActionServiceContext from "../context/ActionServiceContext";
+import FromCrudReporte from "./FromCrudReporte";
 
 export default function FromCrud({
-  modal,
-  setModal,
-  action,
-  tableData,
   dataToChange,
   setDataToChange,
   handleTableDataChange,
 }) {
+  const { activeModal, setActiveModal } = useContext(ReportModal);
+  const { action } = useContext(ActionServiceContext);
+
+  const handleClose = () => {
+    setActiveModal(false);
+  };
+
   return (
     <>
-      <div className={modal ? "blackscreen modalActive" : "blackscreen"}>
+      <div className={activeModal ? "blackscreen modalActive" : "blackscreen"}>
         <div className="modal">
-          <FormCrudInside
-            modal={modal}
-            setModal={setModal}
-            action={action}
-            tableData={tableData}
-            dataToChange={dataToChange}
-            setDataToChange={setDataToChange}
-            handleTableDataChange={handleTableDataChange}
-          />
+          <button onClick={handleClose} className="closeModal x-buttonModal">
+            ✖
+          </button>
+
+          {action.name === "Reporte" && <FromCrudReporte />}
+
+          {action.name === "Agregar" && (
+            <FormCrudAgregar
+              dataToChange={dataToChange}
+              setDataToChange={setDataToChange}
+              handleTableDataChange={handleTableDataChange}
+              handleClose={handleClose}
+            />
+          )}
         </div>
       </div>
     </>

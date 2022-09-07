@@ -1,5 +1,3 @@
-import ServiceOrder from "./ServiceOrder";
-
 export const httpFetch = {
   get: async (url) => {
     try {
@@ -7,13 +5,25 @@ export const httpFetch = {
 
       let info = await data.json();
 
-      let getOrder = [];
+      return info;
+    } catch (err) {
+      console.log(err);
+    }
+  },
 
-      getOrder = info.map((el) => {
-        return new ServiceOrder(el);
+  post: async (url, newData) => {
+    try {
+      let data = await fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newData),
       });
 
-      return getOrder;
+      let info = await data.json();
+
+      return info;
     } catch (err) {
       console.log(err);
     }

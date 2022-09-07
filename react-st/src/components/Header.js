@@ -10,7 +10,10 @@ const Header = () => {
 
   return (
     <header className="header">
-      <h1>SLM Servicio Tecnico</h1>
+      <div className="title-header">
+        <h1>Registro Bodega</h1>
+        <h4>Sobre la mesa</h4>
+      </div>
       <div>
         <div className="nav">
           <NavLink className={(e) => handleLinkIsActive(e)} to="/">

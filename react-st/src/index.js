@@ -5,12 +5,21 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom"; // para rutas
 import { LoginContext } from "./context/LoginContext"; // Contexto para Login
+import { ServiceOrderContext } from "./context/ServiceOrderContext"; // Contexto para Servicio tecnico
+import { ActionServiceContext } from "./context/ActionServiceContext";
+import { ReportModalContext } from "./context/ReportModal";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <BrowserRouter>
     <LoginContext>
-      <App />
+      <ServiceOrderContext>
+        <ActionServiceContext>
+          <ReportModalContext>
+            <App />
+          </ReportModalContext>
+        </ActionServiceContext>
+      </ServiceOrderContext>
     </LoginContext>
   </BrowserRouter>
 );
