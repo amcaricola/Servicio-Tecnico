@@ -16,7 +16,25 @@ export const httpFetch = {
       let data = await fetch(url, {
         method: "POST",
         headers: {
-          "Content-Type": "application/json",
+          "Content-type": "application/json; charset=utf-8",
+        },
+        body: JSON.stringify(newData),
+      });
+
+      let info = await data.json();
+
+      return info;
+    } catch (err) {
+      console.log(err);
+    }
+  },
+
+  put: async (url, newData) => {
+    try {
+      let data = await fetch(url, {
+        method: "PUT",
+        headers: {
+          "Content-type": "application/json; charset=utf-8",
         },
         body: JSON.stringify(newData),
       });

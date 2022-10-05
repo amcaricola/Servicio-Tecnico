@@ -1,1 +1,38 @@
-# CAMBIAR LAS "\_id" - VERIFICARLAS TODAS
+# LOG DE DESARROLLO
+
+## ACTUALIZACIONES REALIZADAS (DESDE VER. 1.0):
+
+23/09/2022
+
+- mejora en la interface de usuario y diseño
+- optimizacion de la base de datos, a servidor constante activo
+- fitro por ordernes cerradas y abiertas en servicio tecnico
+- agregado de pestaña de "servicio de grabado"
+
+28/09/2022
+
+- Se agrego base de Datos de "grabados" a MongoDB
+- se agregaron en servidor las rutas para manejar la base de datos de "grabados"
+- correccion menor de componentes (Modal y tables)
+
+29/09/2022
+
+- unificacion de contexto a uno solo, se manejan separadas las ordenes solamente. y accion tiene un titulo en base a la pestaña usada.
+- correccion de componentes en base al contexto unificado
+
+04/09/2022
+
+- Agregar localstorage para mantener sesion al menos por 5 minutos
+
+05/09/2022
+
+- Agregar "Loading/cargando" al makeCurd.js mientras trata con servidor
+
+## HOTFIX NECESARIOS
+
+## MEJORAS PARA TOMAR EN CUENTA:
+
+- filtro de busqueda - buscador (dinamica) en las tablas
+- encabezado de tablas que se adieran a la parte superior para no perder informacion de ellas
+- separar reporte de ordenes para ser publicadas a clientes.
+- hacer pagina 404 y colocarla en \*

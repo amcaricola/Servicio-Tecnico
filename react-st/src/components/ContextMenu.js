@@ -2,7 +2,9 @@ import React from "react";
 import { useRef } from "react";
 import { useEffect } from "react";
 import { useState } from "react";
-import InsideMenuContext from "./InsideMenuContext";
+import ContextMenuInside from "./ContextMenuInside";
+import { useContext } from "react";
+import GlobalContex from "../context/GlobalContex";
 
 let wHeight = window.innerHeight;
 
@@ -10,7 +12,14 @@ const ContextMenu = () => {
   const menu = useRef();
 
   const [active, setActive] = useState(false);
-  const [orderId, setOrderId] = useState("");
+  const {
+    setAction,
+    action,
+    handleSingleOrder,
+    singleOrder,
+    serviceOrders,
+    printOrders,
+  } = useContext(GlobalContex);
 
   useEffect(() => {
     const activateMenu = (e) => {
@@ -26,7 +35,26 @@ const ContextMenu = () => {
           menu.current.style.top = `${e.clientY}px `;
           menu.current.style.left = `${e.clientX + 5}px `;
         }
-        setOrderId(e.target.dataset.id);
+
+        // console.log(action);
+
+        setAction(function (old) {
+          return { ...old, ...{ name: "", method: "put" } };
+        });
+
+        const allOrders = {
+          servicio: serviceOrders,
+          grabado: printOrders,
+        };
+
+        const currentorder =
+          e.target.dataset.id &&
+          allOrders[action.title].filter(
+            (el) => el._id === e.target.dataset.id
+          )[0];
+
+        handleSingleOrder(currentorder);
+
         setActive(true);
       }
     };
@@ -48,7 +76,14 @@ const ContextMenu = () => {
       document.removeEventListener("contextmenu", activateMenu);
       document.removeEventListener("click", deactivateMenu);
     };
-  }, []);
+  }, [
+    action.title,
+    handleSingleOrder,
+    printOrders,
+    serviceOrders,
+    setAction,
+    singleOrder,
+  ]);
 
   return (
     <>
@@ -56,10 +91,7 @@ const ContextMenu = () => {
         className={active ? "context-menu active-menu" : "context-menu"}
         ref={menu}
       >
-        <InsideMenuContext
-          id={orderId}
-          setActive={setActive}
-        ></InsideMenuContext>
+        <ContextMenuInside setActive={setActive}></ContextMenuInside>
       </div>
     </>
   );

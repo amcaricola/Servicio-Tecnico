@@ -12,11 +12,18 @@ export default function App() {
       <Header />
 
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Home word="Bienvenido!" />} />
         <Route path="/ServicioTecnico" element={<ServicioTecnico />} />
-
         <Route path="/ServicioGrabado" element={<ServicioGrabados />} />
-        <Route path="*" element={<Home />} />
+        <Route
+          path="*"
+          element={
+            <Home
+              word="ERROR 404... =("
+              word2='Parece que estas perdido... te recomendamos ir a "inicio"'
+            />
+          }
+        />
       </Routes>
     </div>
   );

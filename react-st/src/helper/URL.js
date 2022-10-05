@@ -1,3 +1,9 @@
-export const URL = "https://api.amcaricola.com/sertec-slm/db.json";
+// DB PRODUCION
+export const URLservice =
+  "https://sertec-slm-production.up.railway.app/api/orders";
+export const URLgrabado =
+  "https://sertec-slm-production.up.railway.app/api/prints";
 
-// export const URL = "http://localhost:5000/orders";
+// DB dinamica  para pruebas JSON
+// export const URLservice = "http://localhost:5055/orders";
+// export const URLgrabado = "http://localhost:5055/prints";

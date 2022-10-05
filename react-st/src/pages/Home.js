@@ -1,9 +1,12 @@
 import React from "react";
 
-const Home = () => {
+const Home = ({ word, word2 }) => {
   return (
     <section className="home">
-      <h2>Bienvenido!</h2>
+      <div>
+        <h2>{word}</h2>
+        {word2 && <h3>{word2}</h3>}
+      </div>
     </section>
   );
 };

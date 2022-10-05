@@ -17,14 +17,14 @@ textarea {
   border-radius: 8px;
 }
 
-.App {
+/* .App {
   position: absolute;
   left: 0;
   top: 0;
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-}
+} */
 
 input {
   border: transparent;
@@ -112,11 +112,14 @@ header .title-header {
   background: radial-gradient(var(--blue), var(--black));
   color: transparent;
   background-clip: text;
+  margin: 0;
+  padding: 0;
 }
 
 /* SECTION WRAP */
 
 .section {
+  position: fixed;
   width: 100%;
   height: calc(100vh - 150px);
   display: flex;
@@ -148,9 +151,12 @@ header .title-header {
 /* content */
 
 .content {
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 /* TABLA */
@@ -226,6 +232,8 @@ td {
 
   display: flex;
   flex-direction: column;
+
+  border-radius: 15px;
 }
 
 .modal input {
@@ -267,7 +275,8 @@ textarea {
 
 .modal h2 {
   margin-top: 0px;
-  margin-bottom: 0px;
+  margin-bottom: 15px;
+  text-align: center;
 }
 
 .modal h3 {
@@ -280,6 +289,16 @@ textarea {
   justify-content: flex-start;
 }
 
+.doubleInputDiv {
+  display: flex;
+  justify-content: space-between;
+}
+
+.doubleInputDiv label {
+  width: 48%;
+}
+
+/*  VER BOTONES DE MODAL! */
 .modal .btnsm {
   display: flex;
   justify-content: space-between;
@@ -309,6 +328,42 @@ textarea {
 
 .conclum div {
   margin: 25px 0;
+}
+
+.radio-conclusion {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  padding: 20px 0;
+}
+
+.radio-conclusion input {
+  width: 20px;
+  height: 20px;
+}
+
+.radio-conclusion label {
+  display: inline-flex;
+  font-size: 1.2rem;
+  min-width: 100px;
+}
+
+#last-radio-conclusion {
+  margin-bottom: 20px;
+}
+
+#accionModal {
+  width: max-content;
+}
+
+#title-cierre {
+  width: 100%;
+  min-height: 200px;
+  height: 80%;
+  align-items: center;
+  display: flex;
+  justify-content: center;
 }
 
 /* MENU CONTEXT */
@@ -345,4 +400,33 @@ textarea {
 
 .context-menu ul li:hover {
   background-color: var(--blue);
+}
+
+/* Full Reporte */
+
+.comentarioReporte {
+  height: 150px;
+  border: 1px solid black;
+  padding: 10px;
+}
+
+#productoReporte {
+  margin: 10px 0;
+}
+/* LOADER */
+
+.Loader {
+  z-index: 2000;
+  background: #00000090;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+}
+
+.Loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

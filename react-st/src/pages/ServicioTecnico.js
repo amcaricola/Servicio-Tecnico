@@ -1,48 +1,60 @@
 import "../App.css";
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import SideButton from "../components/SideButton";
 import TableService from "../components/TableService";
-import FromCrud from "../components/FormCrud";
-import LoginContext from "../context/LoginContext";
-import ActionServiceContext from "../context/ActionServiceContext";
-import ServiceOrderContext from "../context/ServiceOrderContext";
+import FromCrudServices from "../components/FromCrudServices";
+import GlobalContex from "../context/GlobalContex";
 import ContextMenu from "../components/ContextMenu";
-import ReportModal from "../context/ReportModal";
-
-const initialData = {
-  documento: "",
-  fecha: "",
-  cliente: "",
-  producto: "",
-  comentario: "",
-};
+import ServiceOrderModel from "../helper/ServiceOrderModel";
+import Loader from "../components/Loader";
 
 const ServicioTecnico = () => {
-  const { logging } = useContext(LoginContext);
-  const { setOrders } = useContext(ServiceOrderContext);
-  const { setAction } = useContext(ActionServiceContext);
-  const { setActiveModal } = useContext(ReportModal);
-
-  // const [modal, setModal] = useState(false);
   const [filter, setFilter] = useState(false);
 
-  const [dataToChange, setDataToChange] = useState(initialData);
+  const {
+    logging,
+    setModal,
+    setAction,
+    action,
+    handleSingleOrder,
+    setServiceOrders,
+    serviceOrders,
+  } = useContext(GlobalContex);
+
+  useEffect(() => {
+    setFilter(false);
+    setAction({
+      title: "servicio",
+      name: "",
+      method: "",
+    });
+    handleSingleOrder({});
+    // eslint-disable-next-line
+  }, []);
 
   const handleClickAgregar = () => {
-    setDataToChange(initialData);
-    setAction({
-      name: "Agregar",
-      method: "post",
+    setAction(function (old) {
+      return { ...old, ...{ name: "postFactura", method: "post" } };
     });
-    setActiveModal(true);
+    handleSingleOrder({}, "post");
+    setModal(true);
   };
 
-  const handleTableDataChange = async (value, method) => {
+  const handleTableDataChange = async (value) => {
     try {
       let data = await value;
-      method === "post"
-        ? setOrders((oldData) => oldData.concat(data))
-        : console.log("put"); // verificar el metodo de agregar cuando ya este disponible
+      if (action.method === "post") {
+        const serviceUpdateData = new ServiceOrderModel(data);
+        setServiceOrders((oldData) => oldData.concat(serviceUpdateData));
+      }
+
+      if (action.method === "put") {
+        const serviceUpdateData = new ServiceOrderModel(data);
+        const newData = serviceOrders.map((el) =>
+          el._id === serviceUpdateData._id ? serviceUpdateData : el
+        );
+        setServiceOrders(newData);
+      }
     } catch (err) {
       console.log(err);
     }
@@ -70,12 +82,9 @@ const ServicioTecnico = () => {
         </div>
       </section>
 
-      <FromCrud
-        dataToChange={dataToChange}
-        setDataToChange={setDataToChange}
-        handleTableDataChange={handleTableDataChange}
-      />
+      <FromCrudServices handleTableDataChange={handleTableDataChange} />
       <ContextMenu />
+      <Loader />
     </>
   );
 };

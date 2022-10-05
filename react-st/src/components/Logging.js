@@ -12,7 +12,13 @@ function Logging({ logging, setLogging }) {
       return;
     }
 
-    value === "1234" ? setLogging(true) : alert("Contraseña incorrecta");
+    if (value === "slm2022") {
+      setLogging(true);
+      let actualTimeLogged = new Date().getTime();
+      localStorage.setItem("logged", actualTimeLogged);
+    } else {
+      alert("Contraseña incorrecta");
+    }
     setValue("");
   };
 

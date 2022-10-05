@@ -1,4 +1,25 @@
-class ServiceOrder {
+function estado(item) {
+  if (item.cerrado) {
+    return "CERRADO";
+  }
+  if (item.conclusion) {
+    return "POR ENTREGAR";
+  }
+  if (item.numeroOT) {
+    return "ANALISIS";
+  }
+  if (item.numeroSalida) {
+    return "PREPARACION";
+  }
+  if (item.numeroEntrada) {
+    return "RECIBIDO";
+  }
+  if (item.numeroFactura) {
+    return "SOLICITUD";
+  }
+}
+
+class ServiceOrderModel {
   constructor({
     id,
     _id,
@@ -34,7 +55,8 @@ class ServiceOrder {
     this.conclusion = conclusion;
     this.comentario = comentario;
     this.cerrado = cerrado;
+    this.estado = estado(this);
   }
 }
 
-export default ServiceOrder;
+export default ServiceOrderModel;

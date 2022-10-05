@@ -1,3 +1,4 @@
+import { URL } from "./CRUD.js";
 import Orders from "./ordersModel.js";
 
 let d = document,
@@ -27,7 +28,7 @@ export async function traerDatos(tabla, template) {
   let $template = document.getElementById(template).content;
 
   try {
-    let peticion = await fetch("https://sertecslm.herokuapp.com/api/orders");
+    let peticion = await fetch(URL);
 
     // let peticion = await fetch("https://api.amcaricola.com/sertec-slm/db.json");
 

@@ -1,12 +1,12 @@
 import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
-import LoginContext from "../context/LoginContext";
+import GlobalContex from "../context/GlobalContex";
 import Logging from "./Logging";
 import "../App.css";
 
 const Header = () => {
   const handleLinkIsActive = ({ isActive }) => (isActive ? "navActive" : "");
-  const { logging, setLogging } = useContext(LoginContext);
+  const { logging, setLogging } = useContext(GlobalContex);
 
   return (
     <header className="header">

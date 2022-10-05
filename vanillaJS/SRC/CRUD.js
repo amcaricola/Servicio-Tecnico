@@ -1,6 +1,8 @@
+const URL = "https://sertec-slm-production.up.railway.app/api/orders";
+
 export async function postItem(ot) {
   try {
-    let imprimir = await fetch("https://sertecslm.herokuapp.com/api/orders", {
+    let imprimir = await fetch(URL, {
       method: "POST",
       headers: {
         "Content-type": "application/json; charset=utf-8",
@@ -52,44 +54,41 @@ export async function putItems(ot) {
   let id = ot._id;
 
   try {
-    let imprimir = await fetch(
-      `https://sertecslm.herokuapp.com/api/orders/${id}`,
-      {
-        method: "PUT",
-        headers: {
-          "Content-type": "application/json; charset=utf-8",
-        },
-        body: JSON.stringify({
-          docID: ot.docID,
+    let imprimir = await fetch(`${URL}/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-type": "application/json; charset=utf-8",
+      },
+      body: JSON.stringify({
+        docID: ot.docID,
 
-          numeroFactura: ot.numeroFactura,
+        numeroFactura: ot.numeroFactura,
 
-          clienteFactura: ot.clienteFactura,
+        clienteFactura: ot.clienteFactura,
 
-          fechaFactura: ot.fechaFactura,
+        fechaFactura: ot.fechaFactura,
 
-          numeroEntrada: ot.numeroEntrada,
+        numeroEntrada: ot.numeroEntrada,
 
-          fechaEntrada: ot.fechaEntrada,
+        fechaEntrada: ot.fechaEntrada,
 
-          itemEntrada: ot.itemEntrada,
+        itemEntrada: ot.itemEntrada,
 
-          numeroSalida: ot.numeroSalida,
+        numeroSalida: ot.numeroSalida,
 
-          fechaSalida: ot.fechaSalida,
+        fechaSalida: ot.fechaSalida,
 
-          tallerSalida: ot.tallerSalida,
+        tallerSalida: ot.tallerSalida,
 
-          numeroOT: ot.numeroOT,
+        numeroOT: ot.numeroOT,
 
-          fechaOT: ot.fechaOT,
+        fechaOT: ot.fechaOT,
 
-          conclusion: ot.conclusion,
+        conclusion: ot.conclusion,
 
-          comentario: ot.comentario,
-        }),
-      }
-    );
+        comentario: ot.comentario,
+      }),
+    });
 
     alert("La orden fue Actualizada!");
 
@@ -102,3 +101,5 @@ export async function putItems(ot) {
     );
   }
 }
+
+export { URL };
