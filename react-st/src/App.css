@@ -28,7 +28,7 @@ textarea {
 
 input {
   border: transparent;
-  padding: auto 10px;
+  padding: 0 10px;
   margin: 5px 0;
   height: 30px;
   min-width: 220px;
@@ -157,6 +157,15 @@ header .title-header {
   align-items: center;
   overflow-y: scroll;
   overflow-x: hidden;
+}
+
+/* searcher */
+
+.Searcher {
+  border: thin solid var(--black);
+  position: absolute;
+  left: 230px;
+  top: 20px;
 }
 
 /* TABLA */

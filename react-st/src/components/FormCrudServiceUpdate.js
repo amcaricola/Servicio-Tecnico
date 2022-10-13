@@ -206,7 +206,7 @@ const FormCrudServiceUpdate = ({ handleTableDataChange }) => {
               <label htmlFor="concluCambio">Cambio nuevo producto</label>
             </div>
 
-            <div className="radio-conclusion" id="last-radio-conclusion">
+            <div className="radio-conclusion">
               <input
                 type="radio"
                 value="NOTA CREDITO"
@@ -217,6 +217,17 @@ const FormCrudServiceUpdate = ({ handleTableDataChange }) => {
               <label htmlFor="concluNotacredito">
                 Nota de credito a Cliente
               </label>
+            </div>
+
+            <div className="radio-conclusion" id="last-radio-conclusion">
+              <input
+                type="radio"
+                value="RECHAZADO"
+                name="conclusion"
+                onChange={(e) => handleChange(e)}
+                checked={form.conclusion === "RECHAZADO"}
+              />
+              <label htmlFor="concluCambio">Rechazado por Prioveedor</label>
             </div>
           </>
         )}

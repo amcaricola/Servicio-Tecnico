@@ -27,12 +27,17 @@
 05/09/2022
 
 - Agregar "Loading/cargando" al makeCurd.js mientras trata con servidor
+- pagina 404
+
+13/10/2022
+
+- filtro de busqueda - buscador (dinamica) en las tablas
+- agregada conclusion "RECHAZADO" en servicio tecnico
 
 ## HOTFIX NECESARIOS
 
 ## MEJORAS PARA TOMAR EN CUENTA:
 
-- filtro de busqueda - buscador (dinamica) en las tablas
 - encabezado de tablas que se adieran a la parte superior para no perder informacion de ellas
-- separar reporte de ordenes para ser publicadas a clientes.
-- hacer pagina 404 y colocarla en \*
+- separar reporte de ordenes para ser publicadas a clientes, (deben tener casillas de control de uso interno para digital y fisico - checks).
+- agregar Links de taller (mediante el nombre del taller) para acceder desde la web

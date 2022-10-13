@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import { useEffect } from "react";
 import { useContext } from "react";
 import GlobalContex from "../context/GlobalContex";
 import TableBody from "./TableBody";
@@ -6,7 +7,13 @@ import TableHead from "./TableHead";
 
 export default function TablePrint({ filter }) {
   const { printOrders } = useContext(GlobalContex);
+  const [searcher, setSearcher] = useState("");
+
   // hay que coregir todas las ORDERS!
+
+  useEffect(() => {
+    setSearcher("");
+  }, [filter]);
 
   const headerItems = {
     id: "PrintHeader",
@@ -47,11 +54,28 @@ export default function TablePrint({ filter }) {
     );
   };
 
+  const handleOnchange = (e) => {
+    setSearcher(e.target.value);
+  };
+
   const data = printOrders.filter((el) => el.cerrado === filter);
-  const tableData = data.map((el) => tableFiltered(el));
+
+  const searched = searcher
+    ? data.filter((el) => el.notaVenta.includes(searcher))
+    : data;
+
+  const tableData = searched.map((el) => tableFiltered(el));
 
   return (
     <>
+      <input
+        className="Searcher"
+        type="text"
+        autoComplete="off"
+        value={searcher}
+        onChange={handleOnchange}
+        placeholder="Buscar por Nota de Venta"
+      ></input>
       <table>
         <TableHead headerItems={headerItems} />
 

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useContext } from "react";
 import GlobalContex from "../context/GlobalContex";
 import TableBody from "./TableBody";
@@ -6,6 +6,11 @@ import TableHead from "./TableHead";
 
 export default function TableService({ filter }) {
   const { serviceOrders } = useContext(GlobalContex);
+  const [searcher, setSearcher] = useState("");
+
+  useEffect(() => {
+    setSearcher("");
+  }, [filter]);
 
   const headerItems = {
     id: "ServiceHeader",
@@ -52,11 +57,28 @@ export default function TableService({ filter }) {
     );
   };
 
+  const handleOnchange = (e) => {
+    setSearcher(e.target.value);
+  };
+
   const data = serviceOrders.filter((el) => el.cerrado === filter);
-  const tableData = data.map((el) => tableFiltered(el));
+
+  const searched = searcher
+    ? data.filter((el) => el.numeroFactura.includes(searcher))
+    : data;
+
+  const tableData = searched.map((el) => tableFiltered(el));
 
   return (
     <>
+      <input
+        className="Searcher"
+        type="text"
+        autoComplete="off"
+        value={searcher}
+        onChange={handleOnchange}
+        placeholder="Buscar por Factura"
+      ></input>
       <table>
         <TableHead headerItems={headerItems} />
 
