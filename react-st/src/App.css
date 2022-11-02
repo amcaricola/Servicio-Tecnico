@@ -151,6 +151,7 @@ header .title-header {
 /* content */
 
 .content {
+  position: relative;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -164,7 +165,7 @@ header .title-header {
 .Searcher {
   border: thin solid var(--black);
   position: absolute;
-  left: 230px;
+  left: 25px;
   top: 20px;
 }
 
@@ -200,6 +201,22 @@ td {
 }
 
 /*  MODAL  */
+
+#SharedButton {
+  margin: 0;
+  background-color: var(--blue);
+  font-weight: bold;
+  position: absolute;
+  width: 150px;
+  height: 30px;
+  border: thin solid transparent;
+  border-radius: 8px;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  color: var(--white);
+  text-decoration: none;
+}
 
 .blackscreen {
   position: fixed;
@@ -438,4 +455,110 @@ textarea {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+/* PAGINA COMPARTIR */
+#compartir-hoja {
+  position: relative;
+  width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+  border: thin solid var(--black);
+  padding: 30px 30px 0px 30px;
+}
+#compartir-hoja h1 {
+  text-align: center;
+}
+
+#compartir-date {
+  margin: 20px 30px;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+#compartir-hoja div h3 {
+  text-align: center;
+}
+
+#compartir-hoja div table {
+  width: 100%;
+}
+
+#compartir-hoja td,
+#compartir-hoja tr,
+#compartir-hoja th {
+  height: 10px;
+}
+
+#compartir-hoja th {
+  color: white;
+  background-color: black;
+}
+
+#compartir-comentario-box {
+  width: 100%;
+  height: 150px;
+  border: thin solid var(--black);
+  margin-bottom: 25px;
+  padding: 0 15px;
+}
+
+#compartir-interno {
+  margin: 15px 0;
+  height: 150px;
+}
+
+#compartir-interno div {
+  height: 20px;
+  display: flex;
+  justify-content: space-around;
+  margin: 10px 0;
+}
+
+.compartir-check {
+  border: thin solid var(--black);
+  height: 20px;
+  width: 20px;
+}
+
+.compartir-interno-p {
+  padding: 0;
+  margin: 0;
+  display: grid;
+  justify-content: center;
+}
+
+.compartir-line {
+  border-bottom: thin solid var(--black);
+  width: 120px;
+}
+
+#compartir-firma {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+#compartir-firma > div {
+  display: flex;
+  flex-direction: column;
+  margin-top: 40px;
+}
+
+#compartir-firma .compartir-line {
+  margin-top: 40px;
+  width: 170px;
+}
+
+#compartir-firma .compartir-check {
+  margin-bottom: 20px;
+}
+
+.compartir-firma-inline {
+  display: flex;
+}
+
+.compartir-firma-inline p {
+  margin: 0 0 0 25px;
 }

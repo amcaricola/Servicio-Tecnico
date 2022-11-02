@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import GlobalContex from "../context/GlobalContex";
+import SharedButton from "./SharedButton";
 
 const FromCrudServicesReporte = () => {
   const { singleOrder } = useContext(GlobalContex);
@@ -24,6 +25,7 @@ const FromCrudServicesReporte = () => {
 
   return (
     <>
+      <SharedButton singleOrderId={singleOrder._id} />
       <h2 id="titleReporte">Reporte Completo de la orden: #{docID}</h2>
 
       <h3 id="productoReporte">Producto: {itemEntrada} </h3>

@@ -3,7 +3,7 @@ function estado(item) {
     return "CERRADO";
   }
   if (item.conclusion) {
-    return "POR ENTREGAR";
+    return "ENTREGAR";
   }
   if (item.numeroOT) {
     return "ANALISIS";

@@ -227,7 +227,9 @@ const FormCrudServiceUpdate = ({ handleTableDataChange }) => {
                 onChange={(e) => handleChange(e)}
                 checked={form.conclusion === "RECHAZADO"}
               />
-              <label htmlFor="concluCambio">Rechazado por Prioveedor</label>
+              <label htmlFor="concluCambio">
+                Garantia rechazada por Proveedor
+              </label>
             </div>
           </>
         )}

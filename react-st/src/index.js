@@ -4,14 +4,11 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { HashRouter } from "react-router-dom"; // para rutas
-import { GlobalContexProvider } from "./context/GlobalContex";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <HashRouter>
-    <GlobalContexProvider>
-      <App />
-    </GlobalContexProvider>
+    <App />
   </HashRouter>
 );
 

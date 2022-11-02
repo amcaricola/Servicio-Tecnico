@@ -79,7 +79,6 @@ const ServicioGrabados = () => {
 
         <div className="content">
           <h2>{filter ? "Grabados Concluidos" : "Grabados Activos"}</h2>
-
           <TablePrint filter={filter} />
         </div>
       </section>
