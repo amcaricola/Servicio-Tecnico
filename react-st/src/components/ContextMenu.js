@@ -19,11 +19,13 @@ const ContextMenu = () => {
     singleOrder,
     serviceOrders,
     printOrders,
+    modal,
   } = useContext(GlobalContex);
 
   useEffect(() => {
     const activateMenu = (e) => {
       e.preventDefault();
+      if (modal) return;
       if (e.target.matches("td")) {
         // console.log(e.target.dataset.id);
         if (e.clientY > wHeight * 0.65) {
@@ -77,6 +79,7 @@ const ContextMenu = () => {
       document.removeEventListener("click", deactivateMenu);
     };
   }, [
+    modal,
     action.title,
     handleSingleOrder,
     printOrders,

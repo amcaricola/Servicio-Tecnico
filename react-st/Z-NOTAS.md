@@ -34,10 +34,18 @@
 - filtro de busqueda - buscador (dinamica) en las tablas
 - agregada conclusion "RECHAZADO" en servicio tecnico
 
+01/11/2022
+
+- separar reporte de ordenes para ser publicadas a clientes, (deben tener casillas de control de uso interno para digital y fisico - checks).
+
+17/01/2023
+
+- Corregido error "crash" cuando se hacia click derecho al tener modal abierto.
+
 ## HOTFIX NECESARIOS
 
 ## MEJORAS PARA TOMAR EN CUENTA:
 
 - encabezado de tablas que se adieran a la parte superior para no perder informacion de ellas
-- separar reporte de ordenes para ser publicadas a clientes, (deben tener casillas de control de uso interno para digital y fisico - checks).
-- agregar Links de taller (mediante el nombre del taller) para acceder desde la web
+- agregar usuario y contraseña con tokens a traves de servidor ( VERIFICAR MOVERLO A NEXT-JS)
+- agregar seguridad previa mediante usuario y contraseña

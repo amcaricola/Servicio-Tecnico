@@ -1,4 +1,5 @@
 import "./App.css";
+import "./AppMobile.css";
 import React from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import Home from "./pages/Home";
@@ -17,7 +18,6 @@ export default function App() {
       {id && (
         <Routes>
           <Route path="/ServicioTecnico/:id" element={<Compartir />} />
-          <Route path="/ServicioGrabado/:id" element={<Compartir />} />
         </Routes>
       )}
 

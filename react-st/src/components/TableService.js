@@ -15,16 +15,16 @@ export default function TableService({ filter }) {
   const headerItems = {
     id: "ServiceHeader",
     list: [
-      "Doc ID",
-      "Producto",
-      "Factura",
-      "Cliente",
-      "Guia de Entrada",
-      "Guia de Salida",
-      "Taller de Servicio",
-      "Orden de Trabajo",
-      "Conclusion",
-      "Estado",
+      { key: "Doc ID" },
+      { key: "Producto" },
+      { key: "Factura" },
+      { key: "Cliente" },
+      { key: "Guia de Entrada", class: "D1024" },
+      { key: "Guia de Salida", class: "D1024" },
+      { key: "Taller de Servicio", class: "D1280" },
+      { key: "Orden de Trabajo", class: "D1024" },
+      { key: "Conclusion", class: "D1024" },
+      { key: "Estado" },
     ],
   };
 
@@ -47,11 +47,21 @@ export default function TableService({ filter }) {
         <td data-id={_id}>{itemEntrada}</td>
         <td data-id={_id}>{numeroFactura}</td>
         <td data-id={_id}>{clienteFactura}</td>
-        <td data-id={_id}>{numeroEntrada}</td>
-        <td data-id={_id}>{numeroSalida}</td>
-        <td data-id={_id}>{tallerSalida}</td>
-        <td data-id={_id}>{numeroOT}</td>
-        <td data-id={_id}>{conclusion}</td>
+        <td className="D1024" data-id={_id}>
+          {numeroEntrada}
+        </td>
+        <td className="D1024" data-id={_id}>
+          {numeroSalida}
+        </td>
+        <td className="D1280" data-id={_id}>
+          {tallerSalida}
+        </td>
+        <td className="D1024" data-id={_id}>
+          {numeroOT}
+        </td>
+        <td className="D1024" data-id={_id}>
+          {conclusion}
+        </td>
         <td data-id={_id}>{estado}</td>
       </tr>
     );

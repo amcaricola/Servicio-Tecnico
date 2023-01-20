@@ -5,7 +5,9 @@ const TableHead = ({ headerItems }) => {
     <thead>
       <tr>
         {headerItems.list.map((el) => (
-          <th key={el}>{el}</th>
+          <th className={el.class} key={el.key}>
+            {el.key}
+          </th>
         ))}
       </tr>
     </thead>

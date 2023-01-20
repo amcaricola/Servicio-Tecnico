@@ -18,14 +18,14 @@ export default function TablePrint({ filter }) {
   const headerItems = {
     id: "PrintHeader",
     list: [
-      "Nota Venta",
-      "Taller Grabado",
-      "Guia Salida",
-      "Fecha",
-      "Producto",
-      "Cantidad",
-      "Factura a cliente",
-      "Estado",
+      { key: "Nota Venta" },
+      { key: "Taller Grabado" },
+      { key: "Guia Salida" },
+      { key: "Fecha" },
+      { key: "Producto" },
+      { key: "Cantidad" },
+      { key: "Factura a cliente" },
+      { key: "Estado" },
     ],
   };
 
