@@ -41,25 +41,25 @@ const ServicioGrabados = () => {
     handleSingleOrder({}, "post");
     setModal(true);
   };
-  const handleTableDataChange = async (value) => {
-    try {
-      let data = await value;
-      if (action.method === "post") {
-        const PrintUpdateData = new PrintOrderModel(data);
-        setPrintOrders((oldData) => oldData.concat(PrintUpdateData));
-      }
+  // const handleTableDataChange = async (value) => {
+  //   try {
+  //     let data = await value;
+  //     if (action.method === "post") {
+  //       const PrintUpdateData = new PrintOrderModel(data);
+  //       setPrintOrders((oldData) => oldData.concat(PrintUpdateData));
+  //     }
 
-      if (action.method === "put") {
-        const PrintUpdateData = new PrintOrderModel(data);
-        const newData = printOrders.map((el) =>
-          el._id === PrintUpdateData._id ? PrintUpdateData : el
-        );
-        setPrintOrders(newData);
-      }
-    } catch (err) {
-      console.log(err);
-    }
-  };
+  //     if (action.method === "put") {
+  //       const PrintUpdateData = new PrintOrderModel(data);
+  //       const newData = printOrders.map((el) =>
+  //         el._id === PrintUpdateData._id ? PrintUpdateData : el
+  //       );
+  //       setPrintOrders(newData);
+  //     }
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // };
 
   return (
     <>
@@ -78,12 +78,16 @@ const ServicioGrabados = () => {
         </div>
 
         <div className="content">
-          <h2>{filter ? "Grabados Concluidos" : "Grabados Activos"}</h2>
+          <div className="content-header">
+            <h2>{filter ? "Grabados Concluidos" : "Grabados Activos"}</h2>
+          </div>
           <TablePrint filter={filter} />
         </div>
       </section>
 
-      <FromCrudPrint handleTableDataChange={handleTableDataChange} />
+      <FromCrudPrint
+      // handleTableDataChange={handleTableDataChange}
+      />
       <ContextMenu />
       <Loader />
     </>

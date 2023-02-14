@@ -36,6 +36,7 @@ const GlobalContexProvider = ({ children }) => {
   const [singleOrder, setSingleOrder] = useState({});
   //loader
   const [loader, setLoader] = useState(false);
+  const [thisUser, setThisUser] = useState(false);
 
   //funcion USE EFFECT
 
@@ -104,6 +105,8 @@ const GlobalContexProvider = ({ children }) => {
         setPrintOrders,
         singleOrder,
         handleSingleOrder,
+        thisUser,
+        setThisUser,
       }}
     >
       {children}

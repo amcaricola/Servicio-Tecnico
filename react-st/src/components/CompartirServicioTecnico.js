@@ -40,7 +40,6 @@ const CompartirServicioTecnico = ({ order }) => {
 
   return (
     <div id="compartir-hoja">
-      {console.log(order)}
       <h1>REPORTE DE SERVICIO TECNICO - SLM</h1>
 
       <div>

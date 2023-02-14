@@ -8,6 +8,7 @@ import ServicioGrabados from "./pages/ServicioGrabado";
 import Compartir from "./pages/Compartir";
 import { GlobalContexProvider } from "./context/GlobalContex";
 import Header from "./components/Header";
+import AlertUpdate from "./components/AlertUpdate";
 
 export default function App() {
   const location = useLocation();
@@ -24,6 +25,7 @@ export default function App() {
       {!id && (
         <GlobalContexProvider>
           <Header />
+          <AlertUpdate />
           <Routes>
             <Route path="/" element={<Home word="Bienvenido!" />} />
 

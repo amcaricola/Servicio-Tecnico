@@ -19,8 +19,9 @@ const updateTitle = {
   cierreGrabado: "Cerrar Orden de Grabado",
 };
 
-const FormCrudPrintUpdate = ({ handleTableDataChange }) => {
-  const { singleOrder, action, setModal, setLoader } = useContext(GlobalContex);
+const FormCrudPrintUpdate = () => {
+  const { singleOrder, action, setModal, setLoader, thisUser, setThisUser } =
+    useContext(GlobalContex);
 
   const [form, setForm] = useState(initialFromData);
 
@@ -63,9 +64,10 @@ const FormCrudPrintUpdate = ({ handleTableDataChange }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoader(true);
+    if (!thisUser) setThisUser(true);
     try {
-      let newOrder = await makeCrud(form, action, singleOrder);
-      handleTableDataChange(newOrder);
+      makeCrud(form, action, singleOrder);
+      // handleTableDataChange(newOrder);
       setModal(false);
     } finally {
       setLoader(false);

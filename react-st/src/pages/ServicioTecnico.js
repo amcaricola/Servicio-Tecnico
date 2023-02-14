@@ -40,25 +40,25 @@ const ServicioTecnico = () => {
     setModal(true);
   };
 
-  const handleTableDataChange = async (value) => {
-    try {
-      let data = await value;
-      if (action.method === "post") {
-        const serviceUpdateData = new ServiceOrderModel(data);
-        setServiceOrders((oldData) => oldData.concat(serviceUpdateData));
-      }
+  // const handleTableDataChange = async (value) => {
+  //   try {
+  //     let data = await value;
+  //     if (action.method === "post") {
+  //       const serviceUpdateData = new ServiceOrderModel(data);
+  //       setServiceOrders((oldData) => oldData.concat(serviceUpdateData));
+  //     }
 
-      if (action.method === "put") {
-        const serviceUpdateData = new ServiceOrderModel(data);
-        const newData = serviceOrders.map((el) =>
-          el._id === serviceUpdateData._id ? serviceUpdateData : el
-        );
-        setServiceOrders(newData);
-      }
-    } catch (err) {
-      console.log(err);
-    }
-  };
+  //     if (action.method === "put") {
+  //       const serviceUpdateData = new ServiceOrderModel(data);
+  //       const newData = serviceOrders.map((el) =>
+  //         el._id === serviceUpdateData._id ? serviceUpdateData : el
+  //       );
+  //       setServiceOrders(newData);
+  //     }
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // };
 
   return (
     <>
@@ -77,12 +77,16 @@ const ServicioTecnico = () => {
         </div>
 
         <div className="content">
-          <h2>{filter ? "Ordenes Cerradas" : "Ordenes Activas"}</h2>
+          <div className="content-header">
+            <h2>{filter ? "Ordenes Cerradas" : "Ordenes Activas"}</h2>
+          </div>
           <TableService filter={filter} />
         </div>
       </section>
 
-      <FromCrudServices handleTableDataChange={handleTableDataChange} />
+      <FromCrudServices
+      // handleTableDataChange={handleTableDataChange}
+      />
       <ContextMenu />
       <Loader />
     </>

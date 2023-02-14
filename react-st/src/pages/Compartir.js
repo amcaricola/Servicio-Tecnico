@@ -33,8 +33,6 @@ const Compartir = () => {
         const info = await httpFetch.get(`${ordersToUse[path]}/${id}`);
 
         const order = new ServiceOrderModel(info);
-
-        console.log(order);
         if (!order.hasOwnProperty("_id")) {
           throw new Error("not found");
         }

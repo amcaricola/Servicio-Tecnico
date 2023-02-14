@@ -15,7 +15,9 @@ export default function FromCrudPrint({ handleTableDataChange }) {
       <Modal>
         {action.name === "Reporte" && <FromCrudPrintReporte />}
         {action.name !== "Reporte" && (
-          <FormCrudPrintUpdate handleTableDataChange={handleTableDataChange} />
+          <FormCrudPrintUpdate
+          // handleTableDataChange={handleTableDataChange}
+          />
         )}
       </Modal>
     </>

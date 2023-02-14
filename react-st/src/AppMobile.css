@@ -2,6 +2,9 @@
   .D1280 {
     display: none;
   }
+  .modal {
+    width: 80vw;
+  }
 }
 
 @media (max-width: 1023px) {
@@ -9,15 +12,54 @@
     display: none;
   }
 
+  .body {
+    overflow-y: auto;
+    overflow-x: auto;
+  }
+
+  .header {
+    position: relative;
+    flex-direction: column;
+    padding: 15px;
+    height: 180px;
+  }
+
+  .header .nav a {
+    justify-content: center;
+    width: 120px;
+    margin: 0;
+    height: 50px;
+  }
+
+  .loggingDiv {
+    margin-left: 25px;
+  }
+
   .section {
     flex-direction: column;
+    position: relative;
   }
 
   .aside {
+    max-height: 110px;
+    min-height: 110px;
     width: 100%;
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
     padding: 0;
+  }
+
+  .section {
+    height: auto;
+    overflow-y: hidden;
+    overflow-x: hidden;
+  }
+
+  /* MODIFICAR MODAL  */
+
+  .modal {
+    width: 95vw;
+    height: 95vh;
   }
 }

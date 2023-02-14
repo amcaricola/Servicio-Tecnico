@@ -21,8 +21,9 @@ const updateTitle = {
   updateCierre: "Cerrar OT",
 };
 
-const FormCrudServiceUpdate = ({ handleTableDataChange }) => {
-  const { singleOrder, action, setModal, setLoader } = useContext(GlobalContex);
+const FormCrudServiceUpdate = () => {
+  const { singleOrder, action, setModal, setLoader, thisUser, setThisUser } =
+    useContext(GlobalContex);
 
   const [form, setForm] = useState(initialFromData);
   const {
@@ -95,9 +96,10 @@ const FormCrudServiceUpdate = ({ handleTableDataChange }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoader(true);
+    if (!thisUser) setThisUser(true);
     try {
-      let newOrder = await makeCrud(form, action, singleOrder);
-      handleTableDataChange(newOrder);
+      makeCrud(form, action, singleOrder);
+      // handleTableDataChange(newOrder);
       setModal(false);
     } finally {
       setLoader(false);
@@ -118,70 +120,72 @@ const FormCrudServiceUpdate = ({ handleTableDataChange }) => {
       <h3 id="productoReporte">Orden de trabajo: #{docID} </h3>
 
       <form onSubmit={handleSubmit}>
-        {action.name !== "updateConclusion" && action.name !== "updateCierre" && (
-          <div>
-            <label>
-              Numero de documento:
-              <input
-                type="text"
-                id="documentoID"
-                placeholder="Numero de Documento"
-                autoComplete="off"
-                value={form.documentoID}
-                onChange={(e) => handleChange(e)}
-                required
-              />
-            </label>
-
-            <label>
-              Fecha del documento:
-              <input
-                type="text"
-                id="fecha"
-                placeholder="dd/mm/yyyy"
-                autoComplete="off"
-                value={form.fecha}
-                onChange={(e) => handleChange(e)}
-                pattern="^[0-9]{2}\/[0-9]{2}\/[0-9]{4}$"
-                title="dd/mm/yyyy - dia/mes/año"
-                required
-              />
-            </label>
-
-            <label>
-              Cliente del documento:
-              <input
-                type="text"
-                id="sujeto"
-                placeholder="cliente del documento"
-                autoComplete="off"
-                value={form.sujeto}
-                onChange={(e) => handleChange(e)}
-                required
-              />
-            </label>
-            <div
-              style={
-                action.name === "updateFactura" || action.name === "postFactura"
-                  ? { visibility: "visible" }
-                  : { visibility: "hidden" }
-              }
-            >
+        {action.name !== "updateConclusion" &&
+          action.name !== "updateCierre" && (
+            <div>
               <label>
-                Codigo del Producto:
+                Numero de documento:
                 <input
                   type="text"
-                  id="producto"
-                  placeholder="Producto"
+                  id="documentoID"
+                  placeholder="Numero de Documento"
                   autoComplete="off"
-                  value={form.producto}
+                  value={form.documentoID}
                   onChange={(e) => handleChange(e)}
                   required
                 />
               </label>
+
+              <label>
+                Fecha del documento:
+                <input
+                  type="text"
+                  id="fecha"
+                  placeholder="dd/mm/yyyy"
+                  autoComplete="off"
+                  value={form.fecha}
+                  onChange={(e) => handleChange(e)}
+                  pattern="^[0-9]{2}\/[0-9]{2}\/[0-9]{4}$"
+                  title="dd/mm/yyyy - dia/mes/año"
+                  required
+                />
+              </label>
+
+              <label>
+                Cliente del documento:
+                <input
+                  type="text"
+                  id="sujeto"
+                  placeholder="cliente del documento"
+                  autoComplete="off"
+                  value={form.sujeto}
+                  onChange={(e) => handleChange(e)}
+                  required
+                />
+              </label>
+              <div
+                style={
+                  action.name === "updateFactura" ||
+                  action.name === "postFactura"
+                    ? { visibility: "visible" }
+                    : { visibility: "hidden" }
+                }
+              >
+                <label>
+                  Codigo del Producto:
+                  <input
+                    type="text"
+                    id="producto"
+                    placeholder="Producto"
+                    autoComplete="off"
+                    value={form.producto}
+                    onChange={(e) => handleChange(e)}
+                    required
+                  />
+                </label>
+              </div>
             </div>
-          </div>
-        )}
+          )}
         {action.name === "updateConclusion" && (
           <>
             <div className="radio-conclusion">

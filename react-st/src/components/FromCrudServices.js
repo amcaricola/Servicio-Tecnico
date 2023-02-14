@@ -16,7 +16,7 @@ export default function FromCrudServices({ handleTableDataChange }) {
         {action.name === "Reporte" && <FromCrudServicesReporte />}
         {action.name !== "Reporte" && (
           <FormCrudServiceUpdate
-            handleTableDataChange={handleTableDataChange}
+          // handleTableDataChange={handleTableDataChange}
           />
         )}
       </Modal>
